@@ -4,8 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quanta Intellect — Tools for the AI Agent Era</title>
-  <meta name="description" content="Quanta Intellect builds AI-native developer tools. Vessel Browser is an open-source browser runtime for persistent autonomous web agents.">
+  <meta name="description" content="Quanta Intellect builds AI-native developer tools. Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents on Linux. MCP-native, human-supervised, MIT licensed.">
+  <meta name="keywords" content="AI browser, autonomous agents, MCP, Model Context Protocol, web agent, browser runtime, AI tools, developer tools, open source, Vessel Browser, Quanta Intellect, agent-first, human supervision, AI web browsing">
+  <meta name="author" content="Quanta Intellect">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://quantaintellect.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quantaintellect.com/">
+  <meta property="og:title" content="Quanta Intellect — Tools for the AI Agent Era">
+  <meta property="og:description" content="Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native control, human supervision, persistent sessions. MIT licensed.">
+  <meta property="og:image" content="https://quantaintellect.com/vessel_screenshot_1.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="800">
+  <meta property="og:site_name" content="Quanta Intellect">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quanta Intellect — Tools for the AI Agent Era">
+  <meta name="twitter:description" content="Vessel Browser: an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native, human-supervised, MIT licensed.">
+  <meta name="twitter:image" content="https://quantaintellect.com/vessel_screenshot_1.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Quanta Intellect",
+    "url": "https://quantaintellect.com",
+    "logo": "https://quantaintellect.com/vessel-icon-400x400.png",
+    "description": "Building tools for the AI agent era.",
+    "founder": {
+      "@type": "Person",
+      "name": "Tyler Williams"
+    },
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Portland, Oregon"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Vessel Browser",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/MIT",
+    "url": "https://github.com/unmodeled-tyler/quanta-vessel-browser",
+    "description": "An open-source, AI-native web browser runtime built for persistent autonomous web agents on Linux.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Quanta Intellect"
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="vessel-icon.png">
+  <link rel="apple-touch-icon" href="vessel-icon-400x400.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -720,6 +783,135 @@
     }
 
     /* ═══════════════════════════════════════════
+       BYOK / INTEGRATED CHAT
+       ═══════════════════════════════════════════ */
+    .byok {
+      background: var(--bg-base);
+    }
+
+    .byok-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .byok-content .section-desc {
+      margin-bottom: 2rem;
+    }
+
+    .byok-providers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .byok-provider-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.875rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .byok-provider-tag:hover {
+      border-color: var(--border-accent);
+      color: var(--text-primary);
+    }
+
+    .byok-provider-tag .tag-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+    }
+
+    .byok-modes {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .byok-mode {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .byok-mode-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+    }
+
+    .byok-mode-text h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.125rem;
+    }
+
+    .byok-mode-text p {
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    .byok-screenshot {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
+      transition: box-shadow 0.4s, transform 0.4s;
+    }
+
+    .byok-screenshot:hover {
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), 0 0 60px var(--accent-glow-strong);
+      transform: translateY(-4px);
+    }
+
+    .byok-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .byok-screenshot-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(transparent, rgba(12, 11, 10, 0.9));
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .byok-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
        SPEEDEE SECTION
        ═══════════════════════════════════════════ */
     .speedee {
@@ -1107,6 +1299,7 @@
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#architecture">How It Works</a></li>
+      <li><a href="#chat">BYOK</a></li>
       <li><a href="#design">Design</a></li>
       <li><a href="#install">Install</a></li>
       <li><a href="https://github.com/unmodeled-tyler/quanta-vessel-browser" target="_blank" rel="noopener" class="nav-cta">
@@ -1301,6 +1494,60 @@
             <div class="arch-node-title">Checkpoint Recovery</div>
             <div class="arch-node-desc">Restore to any saved state if things go wrong</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ BYOK / INTEGRATED CHAT ═══════════════ -->
+  <section class="byok" id="chat">
+    <div class="section-inner">
+      <div class="byok-layout">
+        <div class="byok-content">
+          <div class="section-label reveal">Bring Your Own Keys</div>
+          <h2 class="section-title reveal reveal-delay-1">Your keys, your <em>models</em></h2>
+          <p class="section-desc reveal reveal-delay-2">
+            Run Vessel as an MCP server through your agent harness, or use the built-in chat assistant with your own API keys. Eight providers supported out of the box &mdash; plus any OpenAI-compatible endpoint.
+          </p>
+
+          <div class="byok-modes reveal reveal-delay-3">
+            <div class="byok-mode">
+              <div class="byok-mode-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+              </div>
+              <div class="byok-mode-text">
+                <h4>MCP Server Mode</h4>
+                <p>External agent harness controls the browser via Model Context Protocol</p>
+              </div>
+            </div>
+            <div class="byok-mode">
+              <div class="byok-mode-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <div class="byok-mode-text">
+                <h4>Integrated Chat</h4>
+                <p>Built-in sidebar assistant reads the page, uses browser tools, multi-turn history</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="byok-providers reveal reveal-delay-4">
+            <span class="byok-provider-tag"><span class="tag-dot"></span> Anthropic</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> OpenAI</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> Ollama</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> Mistral</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> xAI</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> Google Gemini</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> OpenRouter</span>
+            <span class="byok-provider-tag"><span class="tag-dot"></span> Custom OAI-Compatible</span>
+          </div>
+        </div>
+
+        <div class="byok-screenshot reveal reveal-delay-2">
+          <img src="vessel_screenshot_1.png" alt="Vessel Browser with integrated chat assistant showing a conversation while browsing DuckDuckGo">
+          <div class="byok-screenshot-caption">Integrated chat assistant &middot; Supervisor sidebar</div>
         </div>
       </div>
     </div>

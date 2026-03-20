@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quanta Intellect — Tools for the AI Agent Era</title>
+  <meta name="description" content="Quanta Intellect builds AI-native developer tools. Vessel Browser is an open-source browser runtime for persistent autonomous web agents.">
+  <link rel="icon" type="image/png" href="vessel-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & FOUNDATIONS
+       ═══════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Warm dark palette */
+      --bg-deep: #0c0b0a;
+      --bg-base: #131211;
+      --bg-elevated: #1c1a18;
+      --bg-surface: #242220;
+      --bg-surface-hover: #2e2b28;
+
+      /* Copper/amber accent */
+      --accent: #c8956c;
+      --accent-dim: #a07850;
+      --accent-glow: rgba(200, 149, 108, 0.15);
+      --accent-glow-strong: rgba(200, 149, 108, 0.3);
+
+      /* Sage secondary */
+      --secondary: #7d9f8e;
+      --secondary-dim: #5e7d6d;
+
+      /* Text */
+      --text-primary: #e8e4df;
+      --text-secondary: #9a9590;
+      --text-tertiary: #6b6560;
+
+      /* Borders */
+      --border: rgba(232, 228, 223, 0.08);
+      --border-accent: rgba(200, 149, 108, 0.2);
+
+      /* Typography */
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'DM Mono', 'SF Mono', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--text-primary); }
+
+    /* ═══════════════════════════════════════════
+       SCROLL ANIMATIONS
+       ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      background: rgba(12, 11, 10, 0.8);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand img {
+      height: 28px;
+      width: auto;
+      filter: brightness(0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      color: var(--bg-deep) !important;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--text-primary);
+      color: var(--bg-deep) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 6rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Radial glow behind hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Geometric grid lines */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+    }
+
+    .hero-company-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.4rem 1rem 0.4rem 0.5rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-company-badge img {
+      height: 22px;
+      width: auto;
+      filter: brightness(0.85);
+    }
+
+    .hero-company-badge span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.875rem 2rem;
+      background: var(--accent);
+      color: var(--bg-deep);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: #daa882;
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px var(--accent-glow-strong);
+      color: var(--bg-deep);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.875rem 2rem;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-tertiary);
+      color: var(--text-primary);
+      background: var(--bg-elevated);
+    }
+
+    .hero-install-snippet {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 2rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      max-width: 100%;
+    }
+
+    .hero-install-snippet code {
+      padding: 0.75rem 1.25rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      user-select: all;
+    }
+
+    .hero-install-snippet code .hi-prompt {
+      color: var(--text-tertiary);
+      user-select: none;
+    }
+
+    .hero-install-snippet code .hi-cmd {
+      color: var(--text-primary);
+    }
+
+    .hero-install-snippet code .hi-pkg {
+      color: var(--accent);
+    }
+
+    .hero-install-copy {
+      padding: 0.75rem 1rem;
+      background: var(--bg-surface);
+      border: none;
+      border-left: 1px solid var(--border);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .hero-install-copy:hover {
+      background: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 8px rgba(125, 159, 142, 0.4);
+    }
+
+    /* ═══════════════════════════════════════════
+       VESSEL ICON FLOAT
+       ═══════════════════════════════════════════ */
+    .vessel-hero-icon {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .vessel-hero-icon img {
+      height: 100px;
+      width: auto;
+      filter: drop-shadow(0 0 40px rgba(200, 149, 108, 0.25)) brightness(0.95);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION STYLES
+       ═══════════════════════════════════════════ */
+    section {
+      position: relative;
+      padding: 7rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .section-desc {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .section-divider {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
+    }
+
+    /* ═══════════════════════════════════════════
+       FEATURES SECTION
+       ═══════════════════════════════════════════ */
+    .features {
+      background: var(--bg-base);
+    }
+
+    .features-header {
+      margin-bottom: 4rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      background: var(--bg-base);
+      padding: 2.5rem;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-elevated);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2.5rem;
+      right: 2.5rem;
+      height: 1px;
+      background: transparent;
+      transition: background 0.3s;
+    }
+
+    .feature-card:hover::before {
+      background: var(--accent-dim);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      font-size: 1.125rem;
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .feature-tag {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--accent-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════════
+       ARCHITECTURE / HOW IT WORKS
+       ═══════════════════════════════════════════ */
+    .architecture {
+      background: var(--bg-deep);
+    }
+
+    .arch-header {
+      margin-bottom: 4rem;
+    }
+
+    .arch-diagram {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .arch-column {
+      flex: 1;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .arch-column:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .arch-column-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .arch-node {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .arch-node:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .arch-node-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.375rem;
+    }
+
+    .arch-node-desc {
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    .arch-node--accent {
+      border-color: var(--border-accent);
+      background: linear-gradient(135deg, var(--bg-elevated), rgba(200, 149, 108, 0.05));
+    }
+
+    .arch-flow-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .arch-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .arch-arrow-line {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+      position: relative;
+    }
+
+    .arch-arrow-line::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: -3px;
+      border: 4px solid transparent;
+      border-left-color: var(--accent);
+    }
+
+    .arch-arrow-label {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      color: var(--accent-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Flow connectors between columns */
+    .arch-connector {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 5;
+    }
+
+    .arch-connector-left {
+      right: -30px;
+    }
+
+    .arch-connector-right {
+      right: -30px;
+    }
+
+    .connector-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .connector-arrow svg {
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    .connector-label {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      color: var(--accent-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
+    }
+
+    /* ═══════════════════════════════════════════
+       SPEEDEE SECTION
+       ═══════════════════════════════════════════ */
+    .speedee {
+      background: var(--bg-base);
+      overflow: hidden;
+    }
+
+    .speedee-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .speedee-content .section-desc {
+      margin-bottom: 2.5rem;
+    }
+
+    .speedee-principles {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .speedee-principles li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .speedee-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--accent-dim);
+      line-height: 1.2;
+      flex-shrink: 0;
+      width: 2rem;
+      font-style: italic;
+    }
+
+    .speedee-principle-text h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .speedee-principle-text p {
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+      line-height: 1.55;
+    }
+
+    .speedee-visual {
+      position: relative;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      overflow: hidden;
+    }
+
+    .speedee-visual::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .speedee-layers {
+      position: relative;
+      z-index: 1;
+    }
+
+    .speedee-layer {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.625rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .speedee-layer:hover {
+      border-color: var(--border-accent);
+      transform: translateX(4px);
+    }
+
+    .speedee-layer-name {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .speedee-layer-tools {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-tertiary);
+    }
+
+    .speedee-layer--active {
+      border-color: var(--border-accent);
+      background: linear-gradient(135deg, var(--bg-surface), rgba(200, 149, 108, 0.06));
+    }
+
+    .speedee-layer--active .speedee-layer-name {
+      color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════
+       INSTALL SECTION
+       ═══════════════════════════════════════════ */
+    .install {
+      background: var(--bg-deep);
+    }
+
+    .install-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .install-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .install-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .install-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .install-card--recommended {
+      border-color: var(--border-accent);
+      position: relative;
+    }
+
+    .install-card--recommended::after {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -0.5rem;
+      right: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      letter-spacing: 0.15em;
+      color: var(--bg-deep);
+      background: var(--accent);
+      padding: 0.2rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .install-method-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+    }
+
+    .install-method-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .install-method-desc {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .install-code {
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--secondary);
+      line-height: 1.6;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .install-code .prompt {
+      color: var(--text-tertiary);
+      user-select: none;
+    }
+
+    .install-code .cmd {
+      color: var(--text-primary);
+    }
+
+    .install-code .flag {
+      color: var(--accent-dim);
+    }
+
+    .install-code-copy {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .install-code-copy:hover {
+      color: var(--text-primary);
+      border-color: var(--text-tertiary);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+    .footer {
+      background: var(--bg-deep);
+      border-top: 1px solid var(--border);
+      padding: 4rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand img {
+      height: 24px;
+      filter: brightness(0.7);
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+    }
+
+    .footer-bottom a {
+      color: var(--text-tertiary);
+    }
+
+    .footer-bottom a:hover {
+      color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .install-methods {
+        grid-template-columns: 1fr;
+      }
+      .speedee-layout {
+        grid-template-columns: 1fr;
+      }
+      .arch-diagram {
+        flex-direction: column;
+      }
+      .arch-column:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .arch-connector {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        padding: 1rem 1.25rem;
+      }
+      .nav-links { display: none; }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      section {
+        padding: 4rem 1.25rem;
+      }
+      .hero {
+        padding: 7rem 1.25rem 4rem;
+      }
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════ NAVIGATION ═══════════════ -->
+  <nav class="nav">
+    <a href="#" class="nav-brand">
+      <img src="vessel-logo-transparent.png" alt="Quanta Intellect">
+      <span>Quanta Intellect</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#architecture">How It Works</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="https://github.com/unmodeled-tyler/quanta-vessel-browser" target="_blank" rel="noopener" class="nav-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-company-badge reveal">
+        <img src="vessel-icon.png" alt="">
+        <span>Quanta Intellect</span> &mdash; Tools for the AI agent era
+      </div>
+
+      <div class="vessel-hero-icon reveal reveal-delay-1">
+        <img src="vessel-logo-transparent.png" alt="Vessel Browser">
+      </div>
+
+      <h1 class="reveal reveal-delay-2">The browser where<br> <em>agents</em> drive</h1>
+
+      <p class="hero-sub reveal reveal-delay-3">
+        Vessel is an open-source browser runtime built for persistent autonomous web agents. The AI operates. You supervise.
+      </p>
+
+      <div class="hero-actions reveal reveal-delay-4">
+        <a href="#install" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Get Vessel
+        </a>
+        <a href="https://github.com/unmodeled-tyler/quanta-vessel-browser" target="_blank" rel="noopener" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View Source
+        </a>
+      </div>
+
+      <div class="hero-install-snippet reveal reveal-delay-5">
+        <code><span class="hi-prompt">$ </span><span class="hi-cmd">npm i</span> <span class="hi-pkg">@quanta-intellect/vessel-browser</span></code>
+        <button class="hero-install-copy" onclick="copyNpm(this)">Copy</button>
+      </div>
+
+      <div class="hero-badge-row reveal reveal-delay-5">
+        <div class="hero-badge"><span class="dot"></span> Open Source &middot; MIT</div>
+        <div class="hero-badge"><span class="dot"></span> MCP-Native</div>
+        <div class="hero-badge"><span class="dot"></span> Linux</div>
+        <div class="hero-badge"><span class="dot"></span> 40+ Agent Tools</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ FEATURES ═══════════════ -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="features-header">
+        <div class="section-label reveal">Capabilities</div>
+        <h2 class="section-title reveal reveal-delay-1">Built for agents,<br>not <em>against</em> them</h2>
+        <p class="section-desc reveal reveal-delay-2">
+          Traditional browsers assume a human at the helm. Vessel inverts that model &mdash; the agent is the primary operator, and every surface is designed for programmatic control with human oversight.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg>
+          </div>
+          <h3>Agent-First Design</h3>
+          <p>Not a human browser with agent bolted on. Every interaction surface &mdash; tools, state, context &mdash; is built for autonomous operation.</p>
+          <span class="feature-tag">Core Architecture</span>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3>MCP-Native Control</h3>
+          <p>Full Model Context Protocol integration with 40+ tools. Navigate, interact, extract, and manage state through structured protocol calls.</p>
+          <span class="feature-tag">Protocol</span>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          </div>
+          <h3>Persistent Sessions</h3>
+          <p>Named sessions preserve cookies, localStorage, and browsing state. Checkpoints capture snapshots for recovery after restarts.</p>
+          <span class="feature-tag">State Management</span>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Human Supervision</h3>
+          <p>Supervisor sidebar shows exactly what the agent is doing. Live approval controls, pause/resume, and configurable approval policies.</p>
+          <span class="feature-tag">Oversight</span>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>Semantic Page Context</h3>
+          <p>Structured content extraction with visibility info, disabled state, current values, and select options. Not just DOM &mdash; meaning.</p>
+          <span class="feature-tag">Intelligence</span>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Dev Tools & Command Bar</h3>
+          <p>Built-in developer tools with console, network, and MCP activity logs. Command bar for harness-driven workflows. Reader mode for clean extraction.</p>
+          <span class="feature-tag">Developer Experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ ARCHITECTURE ═══════════════ -->
+  <section class="architecture" id="architecture">
+    <div class="section-inner">
+      <div class="arch-header">
+        <div class="section-label reveal">How It Works</div>
+        <h2 class="section-title reveal reveal-delay-1">Three layers, <em>one flow</em></h2>
+        <p class="section-desc reveal reveal-delay-2">
+          Vessel sits between your agent harness and the web, providing structured control with human oversight at every step.
+        </p>
+      </div>
+
+      <div class="arch-diagram reveal reveal-delay-3">
+        <!-- Agent Column -->
+        <div class="arch-column" style="position: relative;">
+          <div class="arch-column-label">Agent Harness</div>
+          <div class="arch-node">
+            <div class="arch-node-title">MCP Client</div>
+            <div class="arch-node-desc">Hermes, OpenClaw, or any MCP-compatible agent</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-title">Tool Calls</div>
+            <div class="arch-node-desc">navigate, click, type, extract, save_session&hellip;</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-title">Context Window</div>
+            <div class="arch-node-desc">Semantic page context, not raw HTML</div>
+          </div>
+          <div class="arch-connector arch-connector-left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span class="connector-label">MCP</span>
+          </div>
+        </div>
+
+        <!-- Vessel Column -->
+        <div class="arch-column" style="position: relative;">
+          <div class="arch-column-label">Vessel Runtime</div>
+          <div class="arch-node arch-node--accent">
+            <div class="arch-node-title">MCP Server</div>
+            <div class="arch-node-desc">Receives tool calls, validates, routes</div>
+          </div>
+          <div class="arch-node arch-node--accent">
+            <div class="arch-node-title">Browser Engine</div>
+            <div class="arch-node-desc">Chromium with persistent state and session management</div>
+          </div>
+          <div class="arch-node arch-node--accent">
+            <div class="arch-node-title">Ergonomic Layer</div>
+            <div class="arch-node-desc">Semantic hints, contextual tools, flow state</div>
+          </div>
+          <div class="arch-connector arch-connector-right">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span class="connector-label">IPC</span>
+          </div>
+        </div>
+
+        <!-- Human Column -->
+        <div class="arch-column">
+          <div class="arch-column-label">Human Supervisor</div>
+          <div class="arch-node">
+            <div class="arch-node-title">Supervisor Sidebar</div>
+            <div class="arch-node-desc">Live view of agent actions with approve/deny controls</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-title">Approval Policies</div>
+            <div class="arch-node-desc">Configure auto-approve, require-approval, or deny rules</div>
+          </div>
+          <div class="arch-node">
+            <div class="arch-node-title">Checkpoint Recovery</div>
+            <div class="arch-node-desc">Restore to any saved state if things go wrong</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ SPEEDEE / DESIGN PHILOSOPHY ═══════════════ -->
+  <section class="speedee" id="design">
+    <div class="section-inner">
+      <div class="speedee-layout">
+        <div class="speedee-content">
+          <div class="section-label reveal">Design Philosophy</div>
+          <h2 class="section-title reveal reveal-delay-1">The <em>Speedee System</em><br>for agents</h2>
+          <p class="section-desc reveal reveal-delay-2">
+            Inspired by the McDonald brothers' kitchen that made average workers extraordinary &mdash; Vessel encodes web browsing workflow so agents don't have to think about which tool to use.
+          </p>
+          <ul class="speedee-principles">
+            <li class="reveal reveal-delay-2">
+              <span class="speedee-num">1</span>
+              <div class="speedee-principle-text">
+                <h4>Contextual Tool Surfacing</h4>
+                <p>On a login form, the agent only sees login-relevant tools</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <span class="speedee-num">2</span>
+              <div class="speedee-principle-text">
+                <h4>Semantic Action Hints</h4>
+                <p>Elements annotated with workflow context and step progress</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <span class="speedee-num">3</span>
+              <div class="speedee-principle-text">
+                <h4>Flow State Persistence</h4>
+                <p>Workflow state maintained across page navigations</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-4">
+              <span class="speedee-num">4</span>
+              <div class="speedee-principle-text">
+                <h4>Composable Macros</h4>
+                <p>Login, search, checkout &mdash; common patterns as single actions</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-5">
+              <span class="speedee-num">5</span>
+              <div class="speedee-principle-text">
+                <h4>Progressive Disclosure</h4>
+                <p>Tools revealed by layer &mdash; core, navigation, intelligence, diagnostic</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="speedee-visual reveal reveal-delay-2">
+          <div class="speedee-layers">
+            <div class="speedee-layer speedee-layer--active">
+              <span class="speedee-layer-name">core</span>
+              <span class="speedee-layer-tools">snapshot &middot; click &middot; type</span>
+            </div>
+            <div class="speedee-layer">
+              <span class="speedee-layer-name">navigation</span>
+              <span class="speedee-layer-tools">scroll &middot; back &middot; forward</span>
+            </div>
+            <div class="speedee-layer">
+              <span class="speedee-layer-name">interaction</span>
+              <span class="speedee-layer-tools">select &middot; hover &middot; submit</span>
+            </div>
+            <div class="speedee-layer">
+              <span class="speedee-layer-name">intelligence</span>
+              <span class="speedee-layer-tools">extract &middot; read_page &middot; wait_for</span>
+            </div>
+            <div class="speedee-layer">
+              <span class="speedee-layer-name">state</span>
+              <span class="speedee-layer-tools">session &middot; checkpoint &middot; bookmark</span>
+            </div>
+            <div class="speedee-layer">
+              <span class="speedee-layer-name">diagnostic</span>
+              <span class="speedee-layer-tools">console &middot; network &middot; inspect</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ INSTALL ═══════════════ -->
+  <section class="install" id="install">
+    <div class="section-inner">
+      <div class="install-header">
+        <div class="section-label reveal">Get Started</div>
+        <h2 class="section-title reveal reveal-delay-1">Up and running in <em>seconds</em></h2>
+        <p class="section-desc reveal reveal-delay-2">
+          Three ways to install. Pick whichever fits your workflow.
+        </p>
+      </div>
+
+      <div class="install-methods">
+        <div class="install-card install-card--recommended reveal">
+          <div class="install-method-label">Option 1</div>
+          <div class="install-method-title">AppImage</div>
+          <div class="install-method-desc">Single file, no dependencies. Download and run. Includes desktop integration.</div>
+          <div class="install-code">
+            <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
+            <span class="prompt">$ </span><span class="cmd">chmod</span> <span class="flag">+x</span> Vessel-*.AppImage<br>
+            <span class="prompt">$ </span><span class="cmd">./Vessel-*.AppImage</span>
+          </div>
+        </div>
+
+        <div class="install-card reveal reveal-delay-1">
+          <div class="install-method-label">Option 2</div>
+          <div class="install-method-title">npm</div>
+          <div class="install-method-desc">Install globally via npm. Auto-updates. Access the vessel-browser command anywhere.</div>
+          <div class="install-code">
+            <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
+            <span class="prompt">$ </span><span class="cmd">npm install</span> <span class="flag">-g</span> @quanta-intellect/vessel-browser<br>
+            <span class="prompt">$ </span><span class="cmd">vessel-browser</span>
+          </div>
+        </div>
+
+        <div class="install-card reveal reveal-delay-2">
+          <div class="install-method-label">Option 3</div>
+          <div class="install-method-title">Source</div>
+          <div class="install-method-desc">Install from source with the install script. Builds locally. Full control.</div>
+          <div class="install-code">
+            <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
+            <span class="prompt">$ </span><span class="cmd">curl</span> <span class="flag">-fsSL</span> https://raw.githubusercontent.com/<br>&nbsp;&nbsp;unmodeled-tyler/quanta-vessel-browser/<br>&nbsp;&nbsp;main/scripts/install.sh | <span class="cmd">bash</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img src="vessel-logo-transparent.png" alt="">
+          <span class="footer-brand-name">Quanta Intellect</span>
+        </div>
+        <p class="footer-tagline">Building tools for the AI agent era. Open source. Portland, Oregon.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#design">Design Philosophy</a></li>
+          <li><a href="#install">Install</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://github.com/unmodeled-tyler/quanta-vessel-browser" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.npmjs.com/package/@quanta-intellect/vessel-browser" target="_blank" rel="noopener">npm Package</a></li>
+          <li><a href="https://github.com/unmodeled-tyler/quanta-vessel-browser/releases" target="_blank" rel="noopener">Releases</a></li>
+          <li><a href="https://github.com/unmodeled-tyler/quanta-vessel-browser/issues" target="_blank" rel="noopener">Issues</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Quanta Intellect. MIT License.</span>
+      <a href="https://github.com/unmodeled-tyler" target="_blank" rel="noopener">@unmodeled-tyler</a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script>
+    // Scroll-triggered reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Copy npm install command
+    function copyNpm(btn) {
+      navigator.clipboard.writeText('npm i @quanta-intellect/vessel-browser').then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+
+    // Copy code button
+    function copyCode(btn) {
+      const codeBlock = btn.parentElement;
+      const text = codeBlock.textContent
+        .replace('Copy', '')
+        .replace(/\$ /g, '')
+        .trim();
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+
+    // Nav background on scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(12, 11, 10, 0.95)';
+      } else {
+        nav.style.background = 'rgba(12, 11, 10, 0.8)';
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>

@@ -928,6 +928,72 @@
     }
 
     /* ═══════════════════════════════════════════
+       DEMO VIDEO SECTION
+       ═══════════════════════════════════════════ */
+    .demo {
+      background: var(--bg-deep);
+    }
+
+    .demo-video-container {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
+      transition: box-shadow 0.4s, transform 0.4s;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .demo-video-container:hover {
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), 0 0 60px rgba(200, 149, 108, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .demo-video-container video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--bg-deep);
+    }
+
+    .demo-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .demo-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    .demo-stat .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .demo-context {
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
        SPEEDEE SECTION
        ═══════════════════════════════════════════ */
     .speedee {
@@ -1317,6 +1383,7 @@
       <span>Quanta Intellect</span>
     </a>
     <ul class="nav-links">
+      <li><a href="#demo">Demo</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#architecture">How It Works</a></li>
       <li><a href="#chat">BYOK</a></li>
@@ -1368,6 +1435,33 @@
         <div class="hero-badge"><span class="dot"></span> MCP-Native</div>
         <div class="hero-badge"><span class="dot"></span> Linux</div>
         <div class="hero-badge"><span class="dot"></span> 40+ Agent Tools</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ DEMO ═══════════════ -->
+  <section class="demo" id="demo">
+    <div class="section-inner">
+      <div class="section-label reveal">See It In Action</div>
+      <h2 class="section-title reveal reveal-delay-1">Full autonomous loop &mdash; <em>no human input</em></h2>
+      <p class="demo-context reveal reveal-delay-2">
+        One prompt. Five books added to cart on Powell&rsquo;s. The agent navigates, browses, selects, and completes the entire workflow autonomously while you watch.
+      </p>
+
+      <div class="demo-video-container reveal reveal-delay-3">
+        <video controls preload="metadata" poster="">
+          <source src="vessel-full-loop.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="demo-meta reveal reveal-delay-4">
+        <div class="demo-stat"><span class="dot"></span> 2 min 53 sec</div>
+        <div class="demo-stat"><span class="dot"></span> powells.com</div>
+        <div class="demo-stat"><span class="dot"></span> 5 books &rarr; cart</div>
+        <div class="demo-stat"><span class="dot"></span> Zero human input</div>
       </div>
     </div>
   </section>

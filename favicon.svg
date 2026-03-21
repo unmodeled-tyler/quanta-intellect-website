@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="8" r="6" fill="#c8956c"/>
+  <circle cx="105" cy="34" r="6" fill="#c8956c"/>
+  <circle cx="105" cy="86" r="6" fill="#c8956c"/>
+  <circle cx="60" cy="112" r="6" fill="#c8956c"/>
+  <circle cx="15" cy="86" r="6" fill="#c8956c"/>
+  <circle cx="15" cy="34" r="6" fill="#c8956c"/>
+  <circle cx="78" cy="18" r="4.5" fill="#c8956c"/>
+  <circle cx="108" cy="60" r="4.5" fill="#c8956c"/>
+  <circle cx="78" cy="102" r="4.5" fill="#c8956c"/>
+  <circle cx="42" cy="102" r="4.5" fill="#c8956c"/>
+  <circle cx="12" cy="60" r="4.5" fill="#c8956c"/>
+  <circle cx="42" cy="18" r="4.5" fill="#c8956c"/>
+  <circle cx="60" cy="30" r="4.5" fill="#c8956c"/>
+  <circle cx="86" cy="45" r="4.5" fill="#c8956c"/>
+  <circle cx="86" cy="75" r="4.5" fill="#c8956c"/>
+  <circle cx="60" cy="90" r="4.5" fill="#c8956c"/>
+  <circle cx="34" cy="75" r="4.5" fill="#c8956c"/>
+  <circle cx="34" cy="45" r="4.5" fill="#c8956c"/>
+  <line x1="60" y1="14" x2="101" y2="34" stroke="#c8956c" stroke-width="1.5" opacity="0.25"/>
+  <line x1="101" y1="34" x2="101" y2="86" stroke="#c8956c" stroke-width="1.5" opacity="0.25"/>
+  <line x1="101" y1="86" x2="60" y2="108" stroke="#c8956c" stroke-width="1.5" opacity="0.25"/>
+  <line x1="60" y1="108" x2="19" y2="86" stroke="#c8956c" stroke-width="1.5" opacity="0.25"/>
+  <line x1="19" y1="86" x2="19" y2="34" stroke="#c8956c" stroke-width="1.5" opacity="0.25"/>
+  <line x1="19" y1="34" x2="60" y2="14" stroke="#c8956c" stroke-width="1.5" opacity="0.25"/>
+  <line x1="60" y1="33" x2="83" y2="45" stroke="#c8956c" stroke-width="1.5" opacity="0.22"/>
+  <line x1="83" y1="45" x2="83" y2="75" stroke="#c8956c" stroke-width="1.5" opacity="0.22"/>
+  <line x1="83" y1="75" x2="60" y2="87" stroke="#c8956c" stroke-width="1.5" opacity="0.22"/>
+  <line x1="60" y1="87" x2="37" y2="75" stroke="#c8956c" stroke-width="1.5" opacity="0.22"/>
+  <line x1="37" y1="75" x2="37" y2="45" stroke="#c8956c" stroke-width="1.5" opacity="0.22"/>
+  <line x1="37" y1="45" x2="60" y2="33" stroke="#c8956c" stroke-width="1.5" opacity="0.22"/>
+  <circle cx="60" cy="60" r="8" fill="#c8956c"/>
+</svg>

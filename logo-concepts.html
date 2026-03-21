@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quanta Intellect — Lattice Variations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0c0b0a;
+      color: #e8e4df;
+      font-family: 'DM Sans', sans-serif;
+      padding: 3rem;
+    }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #e8e4df;
+    }
+    .subtitle {
+      color: #6b6560;
+      font-size: 1rem;
+      margin-bottom: 4rem;
+      font-weight: 300;
+    }
+    .concepts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+    }
+    .concept {
+      background: #131211;
+      border: 1px solid rgba(232,228,223,0.08);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .concept-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c8956c;
+    }
+    .concept-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem;
+      color: #e8e4df;
+      text-align: center;
+    }
+    .concept-desc {
+      font-size: 0.8125rem;
+      color: #6b6560;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .logo-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .logo-mark {
+      width: 140px;
+      height: 140px;
+    }
+    .logo-with-text {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-with-text svg.small-mark {
+      width: 36px;
+      height: 36px;
+    }
+    .logo-with-text .wordmark {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.375rem;
+      color: #e8e4df;
+      letter-spacing: -0.01em;
+    }
+    .size-demos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(232,228,223,0.06);
+      width: 100%;
+      justify-content: center;
+    }
+    .size-demos svg { opacity: 0.7; }
+    .colors {
+      display: flex;
+      gap: 1.5rem;
+      width: 100%;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+    .color-demo {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .color-demo.on-dark { background: #0c0b0a; border: 1px solid rgba(232,228,223,0.08); }
+    .color-demo.on-mid { background: #1c1a18; }
+    .color-demo.on-light { background: #e8e4df; }
+  </style>
+</head>
+<body>
+  <h1>Lattice Variations</h1>
+  <p class="subtitle">Concept C with increasing node and connection density</p>
+
+  <div class="concepts">
+
+    <!-- ═══════ C1: 8 nodes + center ═══════ -->
+    <div class="concept">
+      <span class="concept-label">Variation C1</span>
+      <div class="logo-display">
+        <svg class="logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 8 outer nodes: cardinal + diagonal positions -->
+          <!-- Cardinal nodes -->
+          <circle cx="60" cy="14" r="5.5" fill="#c8956c"/>
+          <circle cx="106" cy="60" r="5.5" fill="#c8956c"/>
+          <circle cx="60" cy="106" r="5.5" fill="#c8956c"/>
+          <circle cx="14" cy="60" r="5.5" fill="#c8956c"/>
+          <!-- Diagonal nodes -->
+          <circle cx="92" cy="28" r="4" fill="#c8956c"/>
+          <circle cx="92" cy="92" r="4" fill="#c8956c"/>
+          <circle cx="28" cy="92" r="4" fill="#c8956c"/>
+          <circle cx="28" cy="28" r="4" fill="#c8956c"/>
+          <!-- Outer ring connections -->
+          <line x1="60" y1="19" x2="88" y2="28" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="92" y1="32" x2="101" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="101" y1="60" x2="92" y2="88" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="88" y1="92" x2="60" y2="101" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="60" y1="101" x2="32" y2="92" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="28" y1="88" x2="19" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="19" y1="60" x2="28" y2="32" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <line x1="32" y1="28" x2="60" y2="19" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+          <!-- Cross connections through center -->
+          <line x1="60" y1="19" x2="60" y2="52" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/>
+          <line x1="101" y1="60" x2="68" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/>
+          <line x1="60" y1="101" x2="60" y2="68" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/>
+          <line x1="19" y1="60" x2="52" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/>
+          <line x1="28" y1="28" x2="54" y2="54" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/>
+          <line x1="92" y1="28" x2="66" y2="54" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/>
+          <line x1="92" y1="92" x2="66" y2="66" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/>
+          <line x1="28" y1="92" x2="54" y2="66" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/>
+          <!-- Center node -->
+          <circle cx="60" cy="60" r="7" fill="#c8956c"/>
+        </svg>
+
+        <div class="logo-with-text">
+          <svg class="small-mark" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="14" r="5.5" fill="#c8956c"/><circle cx="106" cy="60" r="5.5" fill="#c8956c"/><circle cx="60" cy="106" r="5.5" fill="#c8956c"/><circle cx="14" cy="60" r="5.5" fill="#c8956c"/>
+            <circle cx="92" cy="28" r="4" fill="#c8956c"/><circle cx="92" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="28" r="4" fill="#c8956c"/>
+            <line x1="60" y1="19" x2="88" y2="28" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="92" y1="32" x2="101" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="101" y1="60" x2="92" y2="88" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="88" y1="92" x2="60" y2="101" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="60" y1="101" x2="32" y2="92" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="28" y1="88" x2="19" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="19" y1="60" x2="28" y2="32" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="32" y1="28" x2="60" y2="19" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/>
+            <line x1="60" y1="19" x2="60" y2="52" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/><line x1="101" y1="60" x2="68" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/><line x1="60" y1="101" x2="60" y2="68" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/><line x1="19" y1="60" x2="52" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.2"/>
+            <line x1="28" y1="28" x2="54" y2="54" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/><line x1="92" y1="28" x2="66" y2="54" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/><line x1="92" y1="92" x2="66" y2="66" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/><line x1="28" y1="92" x2="54" y2="66" stroke="#c8956c" stroke-width="1.5" opacity="0.15"/>
+            <circle cx="60" cy="60" r="7" fill="#c8956c"/>
+          </svg>
+          <span class="wordmark">Quanta Intellect</span>
+        </div>
+      </div>
+
+      <div class="concept-name">8 Nodes + Center</div>
+      <p class="concept-desc">Eight outer quanta in cardinal and diagonal positions, all connecting inward to the central intellect. Perimeter ring creates a cohesive boundary.</p>
+
+      <div class="colors">
+        <div class="color-demo on-dark">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="5.5" fill="#c8956c"/><circle cx="106" cy="60" r="5.5" fill="#c8956c"/><circle cx="60" cy="106" r="5.5" fill="#c8956c"/><circle cx="14" cy="60" r="5.5" fill="#c8956c"/><circle cx="92" cy="28" r="4" fill="#c8956c"/><circle cx="92" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="28" r="4" fill="#c8956c"/><line x1="60" y1="19" x2="88" y2="28" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="92" y1="32" x2="101" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="101" y1="60" x2="92" y2="88" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="88" y1="92" x2="60" y2="101" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="60" y1="101" x2="32" y2="92" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="28" y1="88" x2="19" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="19" y1="60" x2="28" y2="32" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="32" y1="28" x2="60" y2="19" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><circle cx="60" cy="60" r="7" fill="#c8956c"/></svg>
+        </div>
+        <div class="color-demo on-mid">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="5.5" fill="#c8956c"/><circle cx="106" cy="60" r="5.5" fill="#c8956c"/><circle cx="60" cy="106" r="5.5" fill="#c8956c"/><circle cx="14" cy="60" r="5.5" fill="#c8956c"/><circle cx="92" cy="28" r="4" fill="#c8956c"/><circle cx="92" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="28" r="4" fill="#c8956c"/><line x1="60" y1="19" x2="88" y2="28" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="92" y1="32" x2="101" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="101" y1="60" x2="92" y2="88" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="88" y1="92" x2="60" y2="101" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="60" y1="101" x2="32" y2="92" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="28" y1="88" x2="19" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="19" y1="60" x2="28" y2="32" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="32" y1="28" x2="60" y2="19" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><circle cx="60" cy="60" r="7" fill="#c8956c"/></svg>
+        </div>
+        <div class="color-demo on-light">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="5.5" fill="#0c0b0a"/><circle cx="106" cy="60" r="5.5" fill="#0c0b0a"/><circle cx="60" cy="106" r="5.5" fill="#0c0b0a"/><circle cx="14" cy="60" r="5.5" fill="#0c0b0a"/><circle cx="92" cy="28" r="4" fill="#0c0b0a"/><circle cx="92" cy="92" r="4" fill="#0c0b0a"/><circle cx="28" cy="92" r="4" fill="#0c0b0a"/><circle cx="28" cy="28" r="4" fill="#0c0b0a"/><line x1="60" y1="19" x2="88" y2="28" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="92" y1="32" x2="101" y2="60" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="101" y1="60" x2="92" y2="88" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="88" y1="92" x2="60" y2="101" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="60" y1="101" x2="32" y2="92" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="28" y1="88" x2="19" y2="60" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="19" y1="60" x2="28" y2="32" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><line x1="32" y1="28" x2="60" y2="19" stroke="#0c0b0a" stroke-width="1.5" opacity="0.3"/><circle cx="60" cy="60" r="7" fill="#0c0b0a"/></svg>
+        </div>
+      </div>
+
+      <div class="size-demos">
+        <svg width="48" height="48" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="5.5" fill="#c8956c"/><circle cx="106" cy="60" r="5.5" fill="#c8956c"/><circle cx="60" cy="106" r="5.5" fill="#c8956c"/><circle cx="14" cy="60" r="5.5" fill="#c8956c"/><circle cx="92" cy="28" r="4" fill="#c8956c"/><circle cx="92" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="92" r="4" fill="#c8956c"/><circle cx="28" cy="28" r="4" fill="#c8956c"/><line x1="60" y1="19" x2="88" y2="28" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="92" y1="32" x2="101" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="101" y1="60" x2="92" y2="88" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="88" y1="92" x2="60" y2="101" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="60" y1="101" x2="32" y2="92" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="28" y1="88" x2="19" y2="60" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="19" y1="60" x2="28" y2="32" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><line x1="32" y1="28" x2="60" y2="19" stroke="#c8956c" stroke-width="1.5" opacity="0.3"/><circle cx="60" cy="60" r="7" fill="#c8956c"/></svg>
+        <svg width="32" height="32" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="7" fill="#c8956c"/><circle cx="106" cy="60" r="7" fill="#c8956c"/><circle cx="60" cy="106" r="7" fill="#c8956c"/><circle cx="14" cy="60" r="7" fill="#c8956c"/><circle cx="92" cy="28" r="5" fill="#c8956c"/><circle cx="92" cy="92" r="5" fill="#c8956c"/><circle cx="28" cy="92" r="5" fill="#c8956c"/><circle cx="28" cy="28" r="5" fill="#c8956c"/><circle cx="60" cy="60" r="8" fill="#c8956c"/></svg>
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="9" fill="#c8956c"/><circle cx="106" cy="60" r="9" fill="#c8956c"/><circle cx="60" cy="106" r="9" fill="#c8956c"/><circle cx="14" cy="60" r="9" fill="#c8956c"/><circle cx="92" cy="28" r="7" fill="#c8956c"/><circle cx="92" cy="92" r="7" fill="#c8956c"/><circle cx="28" cy="92" r="7" fill="#c8956c"/><circle cx="28" cy="28" r="7" fill="#c8956c"/><circle cx="60" cy="60" r="10" fill="#c8956c"/></svg>
+        <svg width="16" height="16" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="14" r="11" fill="#c8956c"/><circle cx="106" cy="60" r="11" fill="#c8956c"/><circle cx="60" cy="106" r="11" fill="#c8956c"/><circle cx="14" cy="60" r="11" fill="#c8956c"/><circle cx="92" cy="28" r="8" fill="#c8956c"/><circle cx="92" cy="92" r="8" fill="#c8956c"/><circle cx="28" cy="92" r="8" fill="#c8956c"/><circle cx="28" cy="28" r="8" fill="#c8956c"/><circle cx="60" cy="60" r="12" fill="#c8956c"/></svg>
+      </div>
+    </div>
+
+    <!-- ═══════ C2: Two rings + center, mesh connections ═══════ -->
+    <div class="concept">
+      <span class="concept-label">Variation C2</span>
+      <div class="logo-display">
+        <svg class="logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring: 8 nodes -->
+          <circle cx="60" cy="10" r="4.5" fill="#c8956c"/>
+          <circle cx="95" cy="25" r="4.5" fill="#c8956c"/>
+          <circle cx="110" cy="60" r="4.5" fill="#c8956c"/>
+          <circle cx="95" cy="95" r="4.5" fill="#c8956c"/>
+          <circle cx="60" cy="110" r="4.5" fill="#c8956c"/>
+          <circle cx="25" cy="95" r="4.5" fill="#c8956c"/>
+          <circle cx="10" cy="60" r="4.5" fill="#c8956c"/>
+          <circle cx="25" cy="25" r="4.5" fill="#c8956c"/>
+          <!-- Inner ring: 4 nodes -->
+          <circle cx="60" cy="34" r="3.5" fill="#c8956c"/>
+          <circle cx="86" cy="60" r="3.5" fill="#c8956c"/>
+          <circle cx="60" cy="86" r="3.5" fill="#c8956c"/>
+          <circle cx="34" cy="60" r="3.5" fill="#c8956c"/>
+          <!-- Outer ring connections -->
+          <line x1="60" y1="14" x2="91" y2="25" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="95" y1="29" x2="106" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="106" y1="60" x2="95" y2="91" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="91" y1="95" x2="60" y2="106" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="60" y1="106" x2="29" y2="95" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="25" y1="91" x2="14" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="14" y1="60" x2="25" y2="29" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <line x1="29" y1="25" x2="60" y2="14" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+          <!-- Inner ring connections -->
+          <line x1="60" y1="37" x2="83" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <line x1="83" y1="60" x2="60" y2="83" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <line x1="60" y1="83" x2="37" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <line x1="37" y1="60" x2="60" y2="37" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <!-- Outer to inner connections -->
+          <line x1="60" y1="14" x2="60" y2="34" stroke="#c8956c" stroke-width="1.2" opacity="0.15"/>
+          <line x1="110" y1="60" x2="86" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.15"/>
+          <line x1="60" y1="110" x2="60" y2="86" stroke="#c8956c" stroke-width="1.2" opacity="0.15"/>
+          <line x1="10" y1="60" x2="34" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.15"/>
+          <line x1="95" y1="25" x2="86" y2="60" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="95" y1="25" x2="60" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="95" y1="95" x2="86" y2="60" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="95" y1="95" x2="60" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="25" y1="95" x2="34" y2="60" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="25" y1="95" x2="60" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="25" y1="25" x2="34" y2="60" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <line x1="25" y1="25" x2="60" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.1"/>
+          <!-- Inner to center -->
+          <line x1="60" y1="37" x2="60" y2="53" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <line x1="83" y1="60" x2="67" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <line x1="60" y1="83" x2="60" y2="67" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <line x1="37" y1="60" x2="53" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+          <!-- Center node -->
+          <circle cx="60" cy="60" r="6.5" fill="#c8956c"/>
+        </svg>
+
+        <div class="logo-with-text">
+          <svg class="small-mark" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="10" r="4.5" fill="#c8956c"/><circle cx="95" cy="25" r="4.5" fill="#c8956c"/><circle cx="110" cy="60" r="4.5" fill="#c8956c"/><circle cx="95" cy="95" r="4.5" fill="#c8956c"/><circle cx="60" cy="110" r="4.5" fill="#c8956c"/><circle cx="25" cy="95" r="4.5" fill="#c8956c"/><circle cx="10" cy="60" r="4.5" fill="#c8956c"/><circle cx="25" cy="25" r="4.5" fill="#c8956c"/>
+            <circle cx="60" cy="34" r="3.5" fill="#c8956c"/><circle cx="86" cy="60" r="3.5" fill="#c8956c"/><circle cx="60" cy="86" r="3.5" fill="#c8956c"/><circle cx="34" cy="60" r="3.5" fill="#c8956c"/>
+            <line x1="60" y1="14" x2="91" y2="25" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="95" y1="29" x2="106" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="106" y1="60" x2="95" y2="91" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="91" y1="95" x2="60" y2="106" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="60" y1="106" x2="29" y2="95" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="25" y1="91" x2="14" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="14" y1="60" x2="25" y2="29" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="29" y1="25" x2="60" y2="14" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/>
+            <line x1="60" y1="37" x2="83" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/><line x1="83" y1="60" x2="60" y2="83" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/><line x1="60" y1="83" x2="37" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/><line x1="37" y1="60" x2="60" y2="37" stroke="#c8956c" stroke-width="1.2" opacity="0.2"/>
+            <circle cx="60" cy="60" r="6.5" fill="#c8956c"/>
+          </svg>
+          <span class="wordmark">Quanta Intellect</span>
+        </div>
+      </div>
+
+      <div class="concept-name">Double Ring</div>
+      <p class="concept-desc">Two concentric rings of nodes — 8 outer, 4 inner — converging on the center. Cross-ring connections create a mesh. Layered intelligence.</p>
+
+      <div class="colors">
+        <div class="color-demo on-dark">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="4.5" fill="#c8956c"/><circle cx="95" cy="25" r="4.5" fill="#c8956c"/><circle cx="110" cy="60" r="4.5" fill="#c8956c"/><circle cx="95" cy="95" r="4.5" fill="#c8956c"/><circle cx="60" cy="110" r="4.5" fill="#c8956c"/><circle cx="25" cy="95" r="4.5" fill="#c8956c"/><circle cx="10" cy="60" r="4.5" fill="#c8956c"/><circle cx="25" cy="25" r="4.5" fill="#c8956c"/><circle cx="60" cy="34" r="3.5" fill="#c8956c"/><circle cx="86" cy="60" r="3.5" fill="#c8956c"/><circle cx="60" cy="86" r="3.5" fill="#c8956c"/><circle cx="34" cy="60" r="3.5" fill="#c8956c"/><line x1="60" y1="14" x2="91" y2="25" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="95" y1="29" x2="106" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="106" y1="60" x2="95" y2="91" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="91" y1="95" x2="60" y2="106" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="60" y1="106" x2="29" y2="95" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="25" y1="91" x2="14" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="14" y1="60" x2="25" y2="29" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="29" y1="25" x2="60" y2="14" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><circle cx="60" cy="60" r="6.5" fill="#c8956c"/></svg>
+        </div>
+        <div class="color-demo on-mid">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="4.5" fill="#c8956c"/><circle cx="95" cy="25" r="4.5" fill="#c8956c"/><circle cx="110" cy="60" r="4.5" fill="#c8956c"/><circle cx="95" cy="95" r="4.5" fill="#c8956c"/><circle cx="60" cy="110" r="4.5" fill="#c8956c"/><circle cx="25" cy="95" r="4.5" fill="#c8956c"/><circle cx="10" cy="60" r="4.5" fill="#c8956c"/><circle cx="25" cy="25" r="4.5" fill="#c8956c"/><circle cx="60" cy="34" r="3.5" fill="#c8956c"/><circle cx="86" cy="60" r="3.5" fill="#c8956c"/><circle cx="60" cy="86" r="3.5" fill="#c8956c"/><circle cx="34" cy="60" r="3.5" fill="#c8956c"/><line x1="60" y1="14" x2="91" y2="25" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="95" y1="29" x2="106" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="106" y1="60" x2="95" y2="91" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="91" y1="95" x2="60" y2="106" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="60" y1="106" x2="29" y2="95" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="25" y1="91" x2="14" y2="60" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="14" y1="60" x2="25" y2="29" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><line x1="29" y1="25" x2="60" y2="14" stroke="#c8956c" stroke-width="1.2" opacity="0.25"/><circle cx="60" cy="60" r="6.5" fill="#c8956c"/></svg>
+        </div>
+        <div class="color-demo on-light">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="4.5" fill="#0c0b0a"/><circle cx="95" cy="25" r="4.5" fill="#0c0b0a"/><circle cx="110" cy="60" r="4.5" fill="#0c0b0a"/><circle cx="95" cy="95" r="4.5" fill="#0c0b0a"/><circle cx="60" cy="110" r="4.5" fill="#0c0b0a"/><circle cx="25" cy="95" r="4.5" fill="#0c0b0a"/><circle cx="10" cy="60" r="4.5" fill="#0c0b0a"/><circle cx="25" cy="25" r="4.5" fill="#0c0b0a"/><circle cx="60" cy="34" r="3.5" fill="#0c0b0a"/><circle cx="86" cy="60" r="3.5" fill="#0c0b0a"/><circle cx="60" cy="86" r="3.5" fill="#0c0b0a"/><circle cx="34" cy="60" r="3.5" fill="#0c0b0a"/><line x1="60" y1="14" x2="91" y2="25" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="95" y1="29" x2="106" y2="60" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="106" y1="60" x2="95" y2="91" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="91" y1="95" x2="60" y2="106" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="60" y1="106" x2="29" y2="95" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="25" y1="91" x2="14" y2="60" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="14" y1="60" x2="25" y2="29" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><line x1="29" y1="25" x2="60" y2="14" stroke="#0c0b0a" stroke-width="1.2" opacity="0.25"/><circle cx="60" cy="60" r="6.5" fill="#0c0b0a"/></svg>
+        </div>
+      </div>
+
+      <div class="size-demos">
+        <svg width="48" height="48" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="4.5" fill="#c8956c"/><circle cx="95" cy="25" r="4.5" fill="#c8956c"/><circle cx="110" cy="60" r="4.5" fill="#c8956c"/><circle cx="95" cy="95" r="4.5" fill="#c8956c"/><circle cx="60" cy="110" r="4.5" fill="#c8956c"/><circle cx="25" cy="95" r="4.5" fill="#c8956c"/><circle cx="10" cy="60" r="4.5" fill="#c8956c"/><circle cx="25" cy="25" r="4.5" fill="#c8956c"/><circle cx="60" cy="34" r="3.5" fill="#c8956c"/><circle cx="86" cy="60" r="3.5" fill="#c8956c"/><circle cx="60" cy="86" r="3.5" fill="#c8956c"/><circle cx="34" cy="60" r="3.5" fill="#c8956c"/><circle cx="60" cy="60" r="6.5" fill="#c8956c"/></svg>
+        <svg width="32" height="32" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="6" fill="#c8956c"/><circle cx="95" cy="25" r="6" fill="#c8956c"/><circle cx="110" cy="60" r="6" fill="#c8956c"/><circle cx="95" cy="95" r="6" fill="#c8956c"/><circle cx="60" cy="110" r="6" fill="#c8956c"/><circle cx="25" cy="95" r="6" fill="#c8956c"/><circle cx="10" cy="60" r="6" fill="#c8956c"/><circle cx="25" cy="25" r="6" fill="#c8956c"/><circle cx="60" cy="34" r="5" fill="#c8956c"/><circle cx="86" cy="60" r="5" fill="#c8956c"/><circle cx="60" cy="86" r="5" fill="#c8956c"/><circle cx="34" cy="60" r="5" fill="#c8956c"/><circle cx="60" cy="60" r="8" fill="#c8956c"/></svg>
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="8" fill="#c8956c"/><circle cx="95" cy="25" r="8" fill="#c8956c"/><circle cx="110" cy="60" r="8" fill="#c8956c"/><circle cx="95" cy="95" r="8" fill="#c8956c"/><circle cx="60" cy="110" r="8" fill="#c8956c"/><circle cx="25" cy="95" r="8" fill="#c8956c"/><circle cx="10" cy="60" r="8" fill="#c8956c"/><circle cx="25" cy="25" r="8" fill="#c8956c"/><circle cx="60" cy="60" r="10" fill="#c8956c"/></svg>
+        <svg width="16" height="16" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="10" r="10" fill="#c8956c"/><circle cx="95" cy="25" r="10" fill="#c8956c"/><circle cx="110" cy="60" r="10" fill="#c8956c"/><circle cx="95" cy="95" r="10" fill="#c8956c"/><circle cx="60" cy="110" r="10" fill="#c8956c"/><circle cx="25" cy="95" r="10" fill="#c8956c"/><circle cx="10" cy="60" r="10" fill="#c8956c"/><circle cx="25" cy="25" r="10" fill="#c8956c"/><circle cx="60" cy="60" r="12" fill="#c8956c"/></svg>
+      </div>
+    </div>
+
+    <!-- ═══════ C3: Dense constellation ═══════ -->
+    <div class="concept">
+      <span class="concept-label">Variation C3</span>
+      <div class="logo-display">
+        <svg class="logo-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Dense constellation: outer ring + inner ring + mid-ring + center -->
+          <!-- Many cross-connections creating a rich mesh -->
+
+          <!-- Outer ring: 6 nodes (hexagonal) -->
+          <circle cx="60" cy="8" r="4" fill="#c8956c"/>
+          <circle cx="105" cy="34" r="4" fill="#c8956c"/>
+          <circle cx="105" cy="86" r="4" fill="#c8956c"/>
+          <circle cx="60" cy="112" r="4" fill="#c8956c"/>
+          <circle cx="15" cy="86" r="4" fill="#c8956c"/>
+          <circle cx="15" cy="34" r="4" fill="#c8956c"/>
+
+          <!-- Mid ring: 6 nodes (hexagonal, rotated 30deg) -->
+          <circle cx="78" cy="18" r="3" fill="#c8956c"/>
+          <circle cx="108" cy="60" r="3" fill="#c8956c"/>
+          <circle cx="78" cy="102" r="3" fill="#c8956c"/>
+          <circle cx="42" cy="102" r="3" fill="#c8956c"/>
+          <circle cx="12" cy="60" r="3" fill="#c8956c"/>
+          <circle cx="42" cy="18" r="3" fill="#c8956c"/>
+
+          <!-- Inner ring: 6 nodes -->
+          <circle cx="60" cy="30" r="3" fill="#c8956c"/>
+          <circle cx="86" cy="45" r="3" fill="#c8956c"/>
+          <circle cx="86" cy="75" r="3" fill="#c8956c"/>
+          <circle cx="60" cy="90" r="3" fill="#c8956c"/>
+          <circle cx="34" cy="75" r="3" fill="#c8956c"/>
+          <circle cx="34" cy="45" r="3" fill="#c8956c"/>
+
+          <!-- Outer hexagon edges -->
+          <line x1="60" y1="12" x2="101" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="101" y1="34" x2="101" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="101" y1="86" x2="60" y2="108" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="60" y1="108" x2="19" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="19" y1="86" x2="19" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="19" y1="34" x2="60" y2="12" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+
+          <!-- Inner hexagon edges -->
+          <line x1="60" y1="33" x2="83" y2="45" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+          <line x1="83" y1="45" x2="83" y2="75" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+          <line x1="83" y1="75" x2="60" y2="87" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+          <line x1="60" y1="87" x2="37" y2="75" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+          <line x1="37" y1="75" x2="37" y2="45" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+          <line x1="37" y1="45" x2="60" y2="33" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+
+          <!-- Outer to mid connections -->
+          <line x1="60" y1="12" x2="78" y2="18" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="78" y1="18" x2="101" y2="34" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="101" y1="34" x2="104" y2="60" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="104" y1="60" x2="101" y2="86" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="101" y1="86" x2="78" y2="102" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="78" y1="102" x2="60" y2="108" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="60" y1="108" x2="42" y2="102" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="42" y1="102" x2="19" y2="86" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="19" y1="86" x2="16" y2="60" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="16" y1="60" x2="19" y2="34" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="19" y1="34" x2="42" y2="18" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+          <line x1="42" y1="18" x2="60" y2="12" stroke="#c8956c" stroke-width="0.8" opacity="0.15"/>
+
+          <!-- Mid to inner cross connections -->
+          <line x1="78" y1="18" x2="60" y2="30" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="78" y1="18" x2="86" y2="45" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="108" y1="60" x2="86" y2="45" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="108" y1="60" x2="86" y2="75" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="78" y1="102" x2="86" y2="75" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="78" y1="102" x2="60" y2="90" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="42" y1="102" x2="60" y2="90" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="42" y1="102" x2="34" y2="75" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="12" y1="60" x2="34" y2="75" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="12" y1="60" x2="34" y2="45" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="42" y1="18" x2="34" y2="45" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+          <line x1="42" y1="18" x2="60" y2="30" stroke="#c8956c" stroke-width="0.8" opacity="0.12"/>
+
+          <!-- Inner to center -->
+          <line x1="60" y1="33" x2="60" y2="53" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="83" y1="45" x2="67" y2="56" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="83" y1="75" x2="67" y2="64" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="60" y1="87" x2="60" y2="67" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="37" y1="75" x2="53" y2="64" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+          <line x1="37" y1="45" x2="53" y2="56" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+
+          <!-- Center node — the intellect -->
+          <circle cx="60" cy="60" r="6" fill="#c8956c"/>
+        </svg>
+
+        <div class="logo-with-text">
+          <svg class="small-mark" viewBox="0 0 120 120" fill="none">
+            <!-- Simplified for small size: just nodes + center -->
+            <circle cx="60" cy="8" r="4" fill="#c8956c"/><circle cx="105" cy="34" r="4" fill="#c8956c"/><circle cx="105" cy="86" r="4" fill="#c8956c"/><circle cx="60" cy="112" r="4" fill="#c8956c"/><circle cx="15" cy="86" r="4" fill="#c8956c"/><circle cx="15" cy="34" r="4" fill="#c8956c"/>
+            <circle cx="78" cy="18" r="3" fill="#c8956c"/><circle cx="108" cy="60" r="3" fill="#c8956c"/><circle cx="78" cy="102" r="3" fill="#c8956c"/><circle cx="42" cy="102" r="3" fill="#c8956c"/><circle cx="12" cy="60" r="3" fill="#c8956c"/><circle cx="42" cy="18" r="3" fill="#c8956c"/>
+            <circle cx="60" cy="30" r="3" fill="#c8956c"/><circle cx="86" cy="45" r="3" fill="#c8956c"/><circle cx="86" cy="75" r="3" fill="#c8956c"/><circle cx="60" cy="90" r="3" fill="#c8956c"/><circle cx="34" cy="75" r="3" fill="#c8956c"/><circle cx="34" cy="45" r="3" fill="#c8956c"/>
+            <line x1="60" y1="12" x2="101" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="34" x2="101" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="86" x2="60" y2="108" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="60" y1="108" x2="19" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="86" x2="19" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="34" x2="60" y2="12" stroke="#c8956c" stroke-width="1" opacity="0.2"/>
+            <line x1="60" y1="33" x2="83" y2="45" stroke="#c8956c" stroke-width="1" opacity="0.18"/><line x1="83" y1="45" x2="83" y2="75" stroke="#c8956c" stroke-width="1" opacity="0.18"/><line x1="83" y1="75" x2="60" y2="87" stroke="#c8956c" stroke-width="1" opacity="0.18"/><line x1="60" y1="87" x2="37" y2="75" stroke="#c8956c" stroke-width="1" opacity="0.18"/><line x1="37" y1="75" x2="37" y2="45" stroke="#c8956c" stroke-width="1" opacity="0.18"/><line x1="37" y1="45" x2="60" y2="33" stroke="#c8956c" stroke-width="1" opacity="0.18"/>
+            <circle cx="60" cy="60" r="6" fill="#c8956c"/>
+          </svg>
+          <span class="wordmark">Quanta Intellect</span>
+        </div>
+      </div>
+
+      <div class="concept-name">Dense Constellation</div>
+      <p class="concept-desc">Three concentric hexagonal layers — 6 outer, 6 mid, 6 inner — with a rich mesh of cross-connections. 19 nodes total. A constellation of discrete quanta.</p>
+
+      <div class="colors">
+        <div class="color-demo on-dark">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="4" fill="#c8956c"/><circle cx="105" cy="34" r="4" fill="#c8956c"/><circle cx="105" cy="86" r="4" fill="#c8956c"/><circle cx="60" cy="112" r="4" fill="#c8956c"/><circle cx="15" cy="86" r="4" fill="#c8956c"/><circle cx="15" cy="34" r="4" fill="#c8956c"/><circle cx="78" cy="18" r="3" fill="#c8956c"/><circle cx="108" cy="60" r="3" fill="#c8956c"/><circle cx="78" cy="102" r="3" fill="#c8956c"/><circle cx="42" cy="102" r="3" fill="#c8956c"/><circle cx="12" cy="60" r="3" fill="#c8956c"/><circle cx="42" cy="18" r="3" fill="#c8956c"/><circle cx="60" cy="30" r="3" fill="#c8956c"/><circle cx="86" cy="45" r="3" fill="#c8956c"/><circle cx="86" cy="75" r="3" fill="#c8956c"/><circle cx="60" cy="90" r="3" fill="#c8956c"/><circle cx="34" cy="75" r="3" fill="#c8956c"/><circle cx="34" cy="45" r="3" fill="#c8956c"/><line x1="60" y1="12" x2="101" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="34" x2="101" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="86" x2="60" y2="108" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="60" y1="108" x2="19" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="86" x2="19" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="34" x2="60" y2="12" stroke="#c8956c" stroke-width="1" opacity="0.2"/><circle cx="60" cy="60" r="6" fill="#c8956c"/></svg>
+        </div>
+        <div class="color-demo on-mid">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="4" fill="#c8956c"/><circle cx="105" cy="34" r="4" fill="#c8956c"/><circle cx="105" cy="86" r="4" fill="#c8956c"/><circle cx="60" cy="112" r="4" fill="#c8956c"/><circle cx="15" cy="86" r="4" fill="#c8956c"/><circle cx="15" cy="34" r="4" fill="#c8956c"/><circle cx="78" cy="18" r="3" fill="#c8956c"/><circle cx="108" cy="60" r="3" fill="#c8956c"/><circle cx="78" cy="102" r="3" fill="#c8956c"/><circle cx="42" cy="102" r="3" fill="#c8956c"/><circle cx="12" cy="60" r="3" fill="#c8956c"/><circle cx="42" cy="18" r="3" fill="#c8956c"/><circle cx="60" cy="30" r="3" fill="#c8956c"/><circle cx="86" cy="45" r="3" fill="#c8956c"/><circle cx="86" cy="75" r="3" fill="#c8956c"/><circle cx="60" cy="90" r="3" fill="#c8956c"/><circle cx="34" cy="75" r="3" fill="#c8956c"/><circle cx="34" cy="45" r="3" fill="#c8956c"/><line x1="60" y1="12" x2="101" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="34" x2="101" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="86" x2="60" y2="108" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="60" y1="108" x2="19" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="86" x2="19" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="34" x2="60" y2="12" stroke="#c8956c" stroke-width="1" opacity="0.2"/><circle cx="60" cy="60" r="6" fill="#c8956c"/></svg>
+        </div>
+        <div class="color-demo on-light">
+          <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="4" fill="#0c0b0a"/><circle cx="105" cy="34" r="4" fill="#0c0b0a"/><circle cx="105" cy="86" r="4" fill="#0c0b0a"/><circle cx="60" cy="112" r="4" fill="#0c0b0a"/><circle cx="15" cy="86" r="4" fill="#0c0b0a"/><circle cx="15" cy="34" r="4" fill="#0c0b0a"/><circle cx="78" cy="18" r="3" fill="#0c0b0a"/><circle cx="108" cy="60" r="3" fill="#0c0b0a"/><circle cx="78" cy="102" r="3" fill="#0c0b0a"/><circle cx="42" cy="102" r="3" fill="#0c0b0a"/><circle cx="12" cy="60" r="3" fill="#0c0b0a"/><circle cx="42" cy="18" r="3" fill="#0c0b0a"/><circle cx="60" cy="30" r="3" fill="#0c0b0a"/><circle cx="86" cy="45" r="3" fill="#0c0b0a"/><circle cx="86" cy="75" r="3" fill="#0c0b0a"/><circle cx="60" cy="90" r="3" fill="#0c0b0a"/><circle cx="34" cy="75" r="3" fill="#0c0b0a"/><circle cx="34" cy="45" r="3" fill="#0c0b0a"/><line x1="60" y1="12" x2="101" y2="34" stroke="#0c0b0a" stroke-width="1" opacity="0.2"/><line x1="101" y1="34" x2="101" y2="86" stroke="#0c0b0a" stroke-width="1" opacity="0.2"/><line x1="101" y1="86" x2="60" y2="108" stroke="#0c0b0a" stroke-width="1" opacity="0.2"/><line x1="60" y1="108" x2="19" y2="86" stroke="#0c0b0a" stroke-width="1" opacity="0.2"/><line x1="19" y1="86" x2="19" y2="34" stroke="#0c0b0a" stroke-width="1" opacity="0.2"/><line x1="19" y1="34" x2="60" y2="12" stroke="#0c0b0a" stroke-width="1" opacity="0.2"/><circle cx="60" cy="60" r="6" fill="#0c0b0a"/></svg>
+        </div>
+      </div>
+
+      <div class="size-demos">
+        <svg width="48" height="48" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="4" fill="#c8956c"/><circle cx="105" cy="34" r="4" fill="#c8956c"/><circle cx="105" cy="86" r="4" fill="#c8956c"/><circle cx="60" cy="112" r="4" fill="#c8956c"/><circle cx="15" cy="86" r="4" fill="#c8956c"/><circle cx="15" cy="34" r="4" fill="#c8956c"/><circle cx="78" cy="18" r="3" fill="#c8956c"/><circle cx="108" cy="60" r="3" fill="#c8956c"/><circle cx="78" cy="102" r="3" fill="#c8956c"/><circle cx="42" cy="102" r="3" fill="#c8956c"/><circle cx="12" cy="60" r="3" fill="#c8956c"/><circle cx="42" cy="18" r="3" fill="#c8956c"/><circle cx="60" cy="30" r="3" fill="#c8956c"/><circle cx="86" cy="45" r="3" fill="#c8956c"/><circle cx="86" cy="75" r="3" fill="#c8956c"/><circle cx="60" cy="90" r="3" fill="#c8956c"/><circle cx="34" cy="75" r="3" fill="#c8956c"/><circle cx="34" cy="45" r="3" fill="#c8956c"/><line x1="60" y1="12" x2="101" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="34" x2="101" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="101" y1="86" x2="60" y2="108" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="60" y1="108" x2="19" y2="86" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="86" x2="19" y2="34" stroke="#c8956c" stroke-width="1" opacity="0.2"/><line x1="19" y1="34" x2="60" y2="12" stroke="#c8956c" stroke-width="1" opacity="0.2"/><circle cx="60" cy="60" r="6" fill="#c8956c"/></svg>
+        <svg width="32" height="32" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="6" fill="#c8956c"/><circle cx="105" cy="34" r="6" fill="#c8956c"/><circle cx="105" cy="86" r="6" fill="#c8956c"/><circle cx="60" cy="112" r="6" fill="#c8956c"/><circle cx="15" cy="86" r="6" fill="#c8956c"/><circle cx="15" cy="34" r="6" fill="#c8956c"/><circle cx="60" cy="30" r="4.5" fill="#c8956c"/><circle cx="86" cy="45" r="4.5" fill="#c8956c"/><circle cx="86" cy="75" r="4.5" fill="#c8956c"/><circle cx="60" cy="90" r="4.5" fill="#c8956c"/><circle cx="34" cy="75" r="4.5" fill="#c8956c"/><circle cx="34" cy="45" r="4.5" fill="#c8956c"/><circle cx="60" cy="60" r="7" fill="#c8956c"/></svg>
+        <svg width="20" height="20" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="8" fill="#c8956c"/><circle cx="105" cy="34" r="8" fill="#c8956c"/><circle cx="105" cy="86" r="8" fill="#c8956c"/><circle cx="60" cy="112" r="8" fill="#c8956c"/><circle cx="15" cy="86" r="8" fill="#c8956c"/><circle cx="15" cy="34" r="8" fill="#c8956c"/><circle cx="60" cy="60" r="10" fill="#c8956c"/></svg>
+        <svg width="16" height="16" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="8" r="10" fill="#c8956c"/><circle cx="105" cy="34" r="10" fill="#c8956c"/><circle cx="105" cy="86" r="10" fill="#c8956c"/><circle cx="60" cy="112" r="10" fill="#c8956c"/><circle cx="15" cy="86" r="10" fill="#c8956c"/><circle cx="15" cy="34" r="10" fill="#c8956c"/><circle cx="60" cy="60" r="12" fill="#c8956c"/></svg>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

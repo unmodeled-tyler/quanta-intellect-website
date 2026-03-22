@@ -1766,19 +1766,8 @@
       <div class="install-methods">
         <div class="install-card install-card--recommended reveal">
           <div class="install-method-label">Option 1</div>
-          <div class="install-method-title">AppImage</div>
-          <div class="install-method-desc">Single file, no dependencies. Download and run. Includes desktop integration.</div>
-          <div class="install-code">
-            <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
-            <span class="prompt">$ </span><span class="cmd">chmod</span> <span class="flag">+x</span> Vessel-*.AppImage<br>
-            <span class="prompt">$ </span><span class="cmd">./Vessel-*.AppImage</span>
-          </div>
-        </div>
-
-        <div class="install-card reveal reveal-delay-1">
-          <div class="install-method-label">Option 2</div>
           <div class="install-method-title">npm</div>
-          <div class="install-method-desc">Install globally via npm. Auto-updates. Access the vessel-browser command anywhere.</div>
+          <div class="install-method-desc">Install globally via npm. Nightly releases — just <code>npm update -g</code> to stay current.</div>
           <div class="install-code">
             <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
             <span class="prompt">$ </span><span class="cmd">npm install</span> <span class="flag">-g</span> @quanta-intellect/vessel-browser<br>
@@ -1786,10 +1775,21 @@
           </div>
         </div>
 
+        <div class="install-card reveal reveal-delay-1">
+          <div class="install-method-label">Option 2</div>
+          <div class="install-method-title">AppImage</div>
+          <div class="install-method-desc">Single file, no dependencies. Download and run. Manual updates required.</div>
+          <div class="install-code">
+            <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
+            <span class="prompt">$ </span><span class="cmd">chmod</span> <span class="flag">+x</span> Vessel-*.AppImage<br>
+            <span class="prompt">$ </span><span class="cmd">./Vessel-*.AppImage</span>
+          </div>
+        </div>
+
         <div class="install-card reveal reveal-delay-2">
           <div class="install-method-label">Option 3</div>
           <div class="install-method-title">Source</div>
-          <div class="install-method-desc">Install from source with the install script. Builds locally. Full control.</div>
+          <div class="install-method-desc">Clone and build from source. Full control. For contributors and power users.</div>
           <div class="install-code">
             <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
             <span class="prompt">$ </span><span class="cmd">curl</span> <span class="flag">-fsSL</span> https://raw.githubusercontent.com/<br>&nbsp;&nbsp;unmodeled-tyler/quanta-vessel-browser/<br>&nbsp;&nbsp;main/scripts/install.sh | <span class="cmd">bash</span>

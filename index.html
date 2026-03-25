@@ -1236,6 +1236,140 @@
     }
 
     /* ═══════════════════════════════════════════
+       PREMIUM SECTION
+       ═══════════════════════════════════════════ */
+    .premium {
+      background: var(--bg-base);
+    }
+
+    .premium-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .premium-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .premium-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .premium-features-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .premium-features-list li strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .premium-check {
+      color: var(--accent);
+      font-size: 1.125rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .premium-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .premium-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .premium-card-price {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .premium-card-price span {
+      font-size: 1rem;
+      color: var(--text-tertiary);
+      font-family: var(--font-body);
+    }
+
+    .premium-card-trial {
+      font-size: 0.8125rem;
+      color: var(--accent-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .premium-card-cta {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+      background: var(--accent);
+      color: var(--bg-deep);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .premium-card-cta:hover {
+      background: #d4a87a;
+      transform: translateY(-1px);
+    }
+
+    .premium-card-note {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    .premium-free-note {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .premium-free-note strong {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .premium-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
        FOOTER
        ═══════════════════════════════════════════ */
     .footer {
@@ -1389,6 +1523,7 @@
       <li><a href="#chat">BYOK</a></li>
       <li><a href="#design">Design</a></li>
       <li><a href="#install">Install</a></li>
+      <li><a href="#premium">Premium</a></li>
       <li><a href="https://github.com/unmodeled-tyler/quanta-vessel-browser" target="_blank" rel="noopener" class="nav-cta">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
@@ -1799,6 +1934,75 @@
     </div>
   </section>
 
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════ PREMIUM ═══════════════ -->
+  <section class="premium" id="premium">
+    <div class="section-inner">
+      <div class="premium-header">
+        <div class="section-label reveal">Vessel Premium</div>
+        <h2 class="section-title reveal reveal-delay-1">Unlock the <em>full</em> toolkit</h2>
+        <p class="section-desc reveal reveal-delay-2">
+          Vessel is free and open source. Premium unlocks advanced capabilities
+          for power users and production agent workflows.
+        </p>
+      </div>
+
+      <div class="premium-layout">
+        <ul class="premium-features-list reveal">
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>Screenshot &amp; vision analysis</strong> &mdash; the agent sees exactly what you see, even when page extraction fails</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>Session management</strong> &mdash; save and restore authenticated browser states across runs. Log in once, reuse forever</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>Obsidian vault integration</strong> &mdash; capture pages, write research notes, and search your knowledge base directly from the agent</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>Workflow tracking</strong> &mdash; multi-step flow state persistence for complex automation sequences</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>DevTools inspection</strong> &mdash; computed styles, console capture, network monitoring, and CDP-level debugging</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>Table extraction</strong> &mdash; structured data extraction from HTML tables into clean JSON</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
+            <span><strong>Unlimited tool iterations</strong> &mdash; configurable up to 1,000 tool calls per conversation turn (free tier: 50)</span>
+          </li>
+        </ul>
+
+        <div class="premium-card reveal reveal-delay-1">
+          <div class="premium-card-label">Premium</div>
+          <div class="premium-card-price">$9.99 <span>/ month</span></div>
+          <div class="premium-card-trial">5-day free trial &mdash; cancel anytime</div>
+          <a href="https://vesselpremium.quantaintellect.com/checkout" class="premium-card-cta" target="_blank" rel="noopener">
+            Start Free Trial
+          </a>
+          <p class="premium-card-note">
+            Payment handled securely by Stripe. After checkout, enter your email
+            in Vessel Settings &gt; Premium to activate.
+          </p>
+        </div>
+      </div>
+
+      <div class="premium-free-note reveal">
+        <strong>The free tier is not a demo.</strong> Core navigation, page reading (including glance mode),
+        clicking, typing, scrolling, bookmarks, highlights, domain policies, browsing history,
+        and 50 tool iterations per turn are all free and always will be. Vessel is MIT-licensed
+        open source &mdash; premium is for users who want the advanced toolkit.
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer class="footer">
     <div class="footer-inner">
@@ -1817,6 +2021,7 @@
           <li><a href="#architecture">Architecture</a></li>
           <li><a href="#design">Design Philosophy</a></li>
           <li><a href="#install">Install</a></li>
+          <li><a href="#premium">Premium</a></li>
         </ul>
       </div>
 
@@ -1840,6 +2045,8 @@
 
     <div class="footer-bottom">
       <span>&copy; 2026 Quanta Intellect. MIT License.</span>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
       <a href="https://github.com/unmodeled-tyler" target="_blank" rel="noopener">@unmodeled-tyler</a>
     </div>
   </footer>

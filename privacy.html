@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Quanta Intellect</title>
+  <meta name="description" content="Privacy Policy for Quanta Intellect and Vessel Browser.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://quantaintellect.com/privacy.html">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #0c0b0a;
+      --bg-base: #131211;
+      --text-primary: #e8e4df;
+      --text-secondary: #9a9590;
+      --text-tertiary: #6b6560;
+      --accent: #c8956c;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Instrument Serif', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-deep);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.9375rem;
+    }
+    .legal-nav {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .legal-nav a:hover { text-decoration: underline; }
+    .legal-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+    .legal-date {
+      color: var(--text-tertiary);
+      font-size: 0.8125rem;
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p, ul {
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.25rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text-primary); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="legal-nav">
+    <a href="/">&larr; Back to Quanta Intellect</a>
+  </div>
+  <div class="legal-content">
+    <h1>Privacy Policy</h1>
+    <p class="legal-date">Effective date: March 25, 2026</p>
+
+    <p>
+      Quanta Intellect ("we," "us," or "our") builds open-source developer tools.
+      This Privacy Policy explains how we collect, use, and protect information in connection
+      with our products and services, including the Vessel Browser application and the
+      quantaintellect.com website.
+    </p>
+
+    <h2>1. What We Collect</h2>
+
+    <p><strong>Vessel Browser (the desktop application):</strong></p>
+    <ul>
+      <li>Vessel runs entirely on your local machine. We do not collect, transmit, or store
+        your browsing data, page content, bookmarks, highlights, session data, or AI conversation history.</li>
+      <li>AI queries are sent directly from your machine to the AI provider you configure
+        (e.g., Anthropic, OpenAI). We do not proxy, log, or have access to these requests.</li>
+      <li>If you subscribe to Vessel Premium, we collect your email address and Stripe customer ID
+        solely for subscription management. Payment processing is handled entirely by
+        <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe</a>.</li>
+    </ul>
+
+    <p><strong>This website (quantaintellect.com):</strong></p>
+    <ul>
+      <li>We use Google Tag Manager and Microsoft Clarity for anonymous analytics
+        (page views, scroll depth, click patterns). No personally identifiable information
+        is collected through these tools.</li>
+      <li>We do not use advertising cookies or sell data to third parties.</li>
+    </ul>
+
+    <h2>2. AI Provider Data</h2>
+    <p>
+      Vessel is a "bring your own key" (BYOK) application. When you configure an AI provider,
+      your API key is stored locally on your machine in your user data directory. We never
+      receive, store, or have access to your API keys. Your AI conversations are sent directly
+      to your chosen provider under their privacy policies.
+    </p>
+
+    <h2>3. Vessel Premium</h2>
+    <p>
+      When you subscribe to Vessel Premium, the following data is processed:
+    </p>
+    <ul>
+      <li><strong>Email address</strong> — used to identify your subscription and for account recovery.</li>
+      <li><strong>Stripe customer ID</strong> — a unique identifier assigned by Stripe for billing.</li>
+      <li><strong>Subscription status</strong> — whether your subscription is active, trialing, or canceled.</li>
+    </ul>
+    <p>
+      Payment information (credit card numbers, billing address) is collected and processed
+      exclusively by Stripe. We never see or store your payment details. See
+      <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.
+    </p>
+
+    <h2>4. Data Storage and Security</h2>
+    <ul>
+      <li>All Vessel application data (settings, bookmarks, highlights, sessions, history)
+        is stored locally on your machine in your OS user data directory.</li>
+      <li>Premium subscription verification requests are processed by a Cloudflare Worker
+        that communicates with the Stripe API. No browsing data is included in these requests.</li>
+      <li>We use HTTPS for all network communication.</li>
+    </ul>
+
+    <h2>5. Third-Party Services</h2>
+    <p>We use the following third-party services:</p>
+    <ul>
+      <li><strong>Stripe</strong> — payment processing for Vessel Premium subscriptions</li>
+      <li><strong>Google Tag Manager</strong> — anonymous website analytics</li>
+      <li><strong>Microsoft Clarity</strong> — anonymous website behavior analytics</li>
+      <li><strong>GitHub</strong> — source code hosting, issue tracking, and release distribution</li>
+      <li><strong>npm</strong> — package distribution</li>
+      <li><strong>Cloudflare</strong> — website hosting and API infrastructure</li>
+    </ul>
+
+    <h2>6. Your Rights</h2>
+    <p>
+      Since Vessel stores all data locally on your machine, you have full control over your data
+      at all times. You can delete any Vessel data by removing files from your user data directory.
+      For Premium subscription data, you can manage or cancel your subscription through the
+      Stripe Customer Portal (accessible from Vessel Settings), or contact us to request deletion.
+    </p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>
+      Vessel is a developer tool not directed at children under 13. We do not knowingly collect
+      information from children.
+    </p>
+
+    <h2>8. Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. Changes will be posted on this page
+      with an updated effective date.
+    </p>
+
+    <h2>9. Contact</h2>
+    <p>
+      Questions about this Privacy Policy? Contact us at
+      <a href="mailto:hello@quantaintellect.com">hello@quantaintellect.com</a>.
+    </p>
+  </div>
+</body>
+</html>

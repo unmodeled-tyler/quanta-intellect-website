@@ -1132,7 +1132,7 @@
 
     .install-methods {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
@@ -1241,6 +1241,24 @@
     .install-code-copy:hover {
       color: var(--text-primary);
       border-color: var(--text-tertiary);
+    }
+
+    .install-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 0 0.25rem;
+    }
+
+    .install-badge-row img {
+      height: 48px;
+      width: auto;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .install-badge-row img:hover {
+      opacity: 1;
     }
 
     /* ═══════════════════════════════════════════
@@ -1913,7 +1931,7 @@
         <div class="section-label reveal">Get Started</div>
         <h2 class="section-title reveal reveal-delay-1">Up and running in <em>seconds</em></h2>
         <p class="section-desc reveal reveal-delay-2">
-          Three ways to install. Pick whichever fits your workflow.
+          Four ways to install. Pick whichever fits your workflow.
         </p>
       </div>
 
@@ -1947,6 +1965,17 @@
           <div class="install-code">
             <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
             <span class="prompt">$ </span><span class="cmd">curl</span> <span class="flag">-fsSL</span> https://raw.githubusercontent.com/<br>&nbsp;&nbsp;unmodeled-tyler/quanta-vessel-browser/<br>&nbsp;&nbsp;main/scripts/install.sh | <span class="cmd">bash</span>
+          </div>
+        </div>
+
+        <div class="install-card reveal reveal-delay-3">
+          <div class="install-method-label">Option 4</div>
+          <div class="install-method-title">Snap Store</div>
+          <div class="install-method-desc">Install from the Snap Store. Auto-updates included. Available on any Linux distro with snapd.</div>
+          <div class="install-badge-row">
+            <a href="https://snapcraft.io/vessel-browser" target="_blank" rel="noopener">
+              <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+            </a>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quanta Intellect — Tools for the AI Agent Era</title>
-  <meta name="description" content="Quanta Intellect builds AI-native developer tools. Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents on Linux. MCP-native, human-supervised, MIT licensed.">
+  <meta name="description" content="Quanta Intellect builds AI-native developer tools. Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native, human-supervised, page-diff aware, MIT licensed.">
   <meta name="keywords" content="AI browser, autonomous agents, MCP, Model Context Protocol, web agent, browser runtime, AI tools, developer tools, open source, Vessel Browser, Quanta Intellect, agent-first, human supervision, AI web browsing">
   <meta name="author" content="Quanta Intellect">
   <meta name="robots" content="index, follow">
@@ -38,7 +38,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://quantaintellect.com/">
   <meta property="og:title" content="Quanta Intellect — Tools for the AI Agent Era">
-  <meta property="og:description" content="Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native control, human supervision, persistent sessions. MIT licensed.">
+  <meta property="og:description" content="Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native control, human supervision, persistent sessions, and page-diff monitoring. MIT licensed.">
   <meta property="og:image" content="https://quantaintellect.com/quanta-intellect-social-preview-2.png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="800">
@@ -47,7 +47,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Quanta Intellect — Tools for the AI Agent Era">
-  <meta name="twitter:description" content="Vessel Browser: an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native, human-supervised, MIT licensed.">
+  <meta name="twitter:description" content="Vessel Browser: an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native, human-supervised, page-diff aware, MIT licensed.">
   <meta name="twitter:image" content="https://quantaintellect.com/quanta-intellect-social-preview-2.png">
 
   <!-- Structured Data -->
@@ -75,10 +75,10 @@
     "@type": "SoftwareApplication",
     "name": "Vessel Browser",
     "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Linux",
+    "operatingSystem": "Linux, Windows",
     "license": "https://opensource.org/licenses/MIT",
     "url": "https://github.com/unmodeled-tyler/quanta-vessel-browser",
-    "description": "An open-source, AI-native web browser runtime built for persistent autonomous web agents on Linux.",
+    "description": "An open-source, AI-native web browser runtime built for persistent autonomous web agents.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -1592,7 +1592,7 @@
       <h1 class="reveal reveal-delay-2">The browser where<br> <em>agents</em> drive</h1>
 
       <p class="hero-sub reveal reveal-delay-3">
-        Vessel is an open-source browser runtime built for persistent autonomous web agents. The AI operates. You supervise.
+        Vessel is an open-source browser runtime built for persistent autonomous web agents. The AI operates, Vessel tracks state and page changes, you supervise.
       </p>
 
       <div class="hero-actions reveal reveal-delay-4">
@@ -1614,7 +1614,7 @@
       <div class="hero-badge-row reveal reveal-delay-5">
         <div class="hero-badge"><span class="dot"></span> Open Source &middot; MIT</div>
         <div class="hero-badge"><span class="dot"></span> MCP-Native</div>
-        <div class="hero-badge"><span class="dot"></span> Linux</div>
+        <div class="hero-badge"><span class="dot"></span> Linux-first &middot; Windows available</div>
         <div class="hero-badge"><span class="dot"></span> 60+ Agent Tools</div>
       </div>
     </div>
@@ -1684,7 +1684,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
           </div>
           <h3>Persistent Sessions</h3>
-          <p>Named sessions preserve cookies, localStorage, and browsing state. Checkpoints capture snapshots for recovery after restarts.</p>
+          <p>Named sessions preserve cookies, localStorage, and tab layout. Annotated checkpoints and action undo give humans safe recovery points before risky flows.</p>
           <span class="feature-tag">State Management</span>
         </div>
 
@@ -1693,7 +1693,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <h3>Human Supervision</h3>
-          <p>Supervisor sidebar shows exactly what the agent is doing. Live approval controls, pause/resume, and configurable approval policies.</p>
+          <p>Supervisor sidebar spans seven tabs: Supervisor, Bookmarks, Checkpoints, Chat, Automate, History, and Changes. Pause, approve, undo, or redirect live.</p>
           <span class="feature-tag">Oversight</span>
         </div>
 
@@ -1702,7 +1702,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </div>
           <h3>Semantic Page Context</h3>
-          <p>Structured content extraction with visibility info, disabled state, current values, and select options. Not just DOM &mdash; meaning.</p>
+          <p>Page schema inference labels page type, entities, forms, fields, and action buttons. Extraction includes visibility, disabled state, values, and overlays.</p>
           <span class="feature-tag">Intelligence</span>
         </div>
 
@@ -1719,17 +1719,17 @@
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3>Page Diff &amp; Monitoring</h3>
-          <p>Vessel remembers every page you visit. When something changes &mdash; price, title, content &mdash; a Changed badge appears. See exactly what differed since last time.</p>
-          <span class="feature-tag">Monitoring</span>
+          <h3>Page Diff &amp; What Changed</h3>
+          <p>Vessel snapshots visited pages and surfaces a Changed badge when title, headings, or content differ. Premium adds a sidebar timeline of change bursts.</p>
+          <span class="feature-tag">Change Intelligence</span>
         </div>
 
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
-          <h3>Autofill &amp; Highlights</h3>
-          <p>Save personal profiles and fill forms with one click. Agents visually highlight text and elements on any page with labeled, color-coded markers that persist.</p>
+          <h3>Autofill, Highlights &amp; Bookmarks</h3>
+          <p>Reusable profiles fill forms. Highlights persist across navigation. Agent-facing bookmarks store intent, expected content, key fields, hints, and page schema.</p>
           <span class="feature-tag">Interaction</span>
         </div>
 
@@ -1738,7 +1738,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
           </div>
           <h3>Transcript &amp; Workflows</h3>
-          <p>Live agent thinking rendered in a floating dock. Multi-step workflow tracking shows progress in the sidebar. The agent declares steps; you follow along.</p>
+          <p>Live agent thinking renders in a floating dock. Multi-step workflows and premium Automation Kits show progress in the sidebar while the agent executes.</p>
           <span class="feature-tag">Observability</span>
         </div>
       </div>
@@ -1768,7 +1768,7 @@
           </div>
           <div class="arch-node">
             <div class="arch-node-title">Tool Calls</div>
-            <div class="arch-node-desc">navigate, click, type, extract, save_session&hellip;</div>
+            <div class="arch-node-desc">navigate, click, type, extract, diff, undo, save_session&hellip;</div>
           </div>
           <div class="arch-node">
             <div class="arch-node-title">Context Window</div>
@@ -1793,7 +1793,7 @@
           </div>
           <div class="arch-node arch-node--accent">
             <div class="arch-node-title">Ergonomic Layer</div>
-            <div class="arch-node-desc">Semantic hints, contextual tools, flow state</div>
+            <div class="arch-node-desc">Semantic hints, contextual tools, flow state, page-change snapshots</div>
           </div>
           <div class="arch-connector arch-connector-right">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1814,7 +1814,7 @@
           </div>
           <div class="arch-node">
             <div class="arch-node-title">Checkpoint Recovery</div>
-            <div class="arch-node-desc">Restore to any saved state if things go wrong</div>
+            <div class="arch-node-desc">Restore to a named checkpoint or the snapshot before the last mutating action</div>
           </div>
         </div>
       </div>
@@ -1976,7 +1976,7 @@
         <div class="install-card install-card--recommended reveal">
           <div class="install-method-label">Option 1</div>
           <div class="install-method-title">npm</div>
-          <div class="install-method-desc">Install globally via npm. Nightly releases — just <code>npm update -g</code> to stay current.</div>
+          <div class="install-method-desc">Install globally via npm on Linux or Windows. Nightly releases — just <code>npm update -g</code> to stay current.</div>
           <div class="install-code">
             <button class="install-code-copy" onclick="copyCode(this)">Copy</button>
             <span class="prompt">$ </span><span class="cmd">npm install</span> <span class="flag">-g</span> @quanta-intellect/vessel-browser<br>
@@ -2029,7 +2029,7 @@
         <h2 class="section-title reveal reveal-delay-1">Unlock the <em>full</em> toolkit</h2>
         <p class="section-desc reveal reveal-delay-2">
           Vessel is free and open source. Premium unlocks advanced capabilities
-          for power users and production agent workflows.
+          for power users and production agent workflows, including full page-change history.
         </p>
       </div>
 
@@ -2069,6 +2069,10 @@
           </li>
           <li>
             <span class="premium-check">&#10003;</span>
+            <span><strong>What Changed Timeline</strong> &mdash; persisted per-page change history in the sidebar Changes tab, with timestamps and compact summaries for each detected update</span>
+          </li>
+          <li>
+            <span class="premium-check">&#10003;</span>
             <span><strong>Session performance metrics</strong> &mdash; per-tool call counts, average durations, error rates, and total session statistics</span>
           </li>
           <li>
@@ -2093,7 +2097,8 @@
 
       <div class="premium-free-note reveal">
         <strong>The free tier is not a demo.</strong> Core navigation, page reading (including glance mode),
-        clicking, typing, scrolling, bookmarks, highlights, domain policies, browsing history,
+        clicking, typing, scrolling, bookmarks, highlights, action undo, autofill profiles,
+        per-tab ad blocking, the Changed badge, domain policies, browsing history,
         and 50 tool iterations per turn are all free and always will be. Vessel is MIT-licensed
         open source &mdash; premium is for users who want the advanced toolkit.
       </div>

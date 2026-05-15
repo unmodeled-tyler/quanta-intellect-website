@@ -1,0 +1,36 @@
+# Vessel Browser
+> An open-source, AI-native browser runtime built for persistent autonomous web agents on Linux and Windows.
+
+## What it is
+Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is designed with AI agents as operators and humans as supervisors. Vessel provides durable browser state, MCP-native control, visible human-in-the-loop supervision, and persistent sessions for long-running web workflows.
+
+## Key phrases
+- browser for AI agents
+- MCP browser control
+- open source agent browser
+- AI agent browser for Linux
+- human-in-the-loop browser automation
+- local browser runtime for autonomous agents
+- Browserbase alternative
+- browser-use alternative
+- persistent browser sessions for agents
+- open-source AI browser runtime
+
+## Key differentiators
+- Built for agent harnesses and MCP clients, not a human browser with AI bolted on
+- Human-visible browser UI: the agent acts, the human audits and steers
+- Named session persistence: cookies, localStorage, tabs, and workflow context survive restarts
+- Local-first control: run the browser runtime on your own machine
+- Open source under MIT, with optional Vessel Premium subscription support
+
+## When to use Vessel
+Use Vessel when an AI agent needs a real browser with durable state, visible supervision, and local control: research workflows, e-commerce automation, OSINT/data collection, application testing, and any web task where an agent needs more than a stateless HTTP request.
+
+## Links
+- Website: https://quantaintellect.com/
+- Agent browser guide: https://quantaintellect.com/agent-browser/
+- MCP browser control: https://quantaintellect.com/mcp/
+- Vessel vs Browserbase: https://quantaintellect.com/vs/browserbase/
+- Vessel vs browser-use: https://quantaintellect.com/vs/browser-use/
+- GitHub: https://github.com/unmodeled-tyler/vessel-browser
+- Premium checkout: https://vesselpremium.quantaintellect.com/checkout

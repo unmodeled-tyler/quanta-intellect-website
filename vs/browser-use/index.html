@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vessel vs browser-use | Agent Browser Runtime vs Browser Automation Library</title>
+  <meta name="description" content="Compare Vessel Browser and browser-use: Vessel is a persistent local agent browser runtime with UI and MCP; browser-use is a browser automation library for agents.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://quantaintellect.com/vs/browser-use/index.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vessel vs browser-use | Agent Browser Runtime vs Browser Automation Library">
+  <meta property="og:description" content="Compare Vessel Browser and browser-use: Vessel is a persistent local agent browser runtime with UI and MCP; browser-use is a browser automation library for agents.">
+  <meta property="og:url" content="https://quantaintellect.com/vs/browser-use/index.html">
+  <meta property="og:image" content="https://quantaintellect.com/quanta-intellect-social-preview-2.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG3LTBNMJH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EG3LTBNMJH');</script>
+
+  <style>
+    :root { --bg:#0c0b0a; --surface:#171513; --surface2:#211e1b; --text:#e8e4df; --muted:#a79f97; --line:rgba(232,228,223,.12); --accent:#c8956c; --sage:#7d9f8e; }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top left,rgba(200,149,108,.12),transparent 34rem),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif} a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}.wrap{max-width:980px;margin:0 auto;padding:48px 22px 80px}.nav{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:64px}.brand{color:var(--text);font-weight:700}.navlinks{display:flex;flex-wrap:wrap;gap:16px;font-size:14px}.eyebrow{color:var(--sage);text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700}h1{font-size:clamp(38px,7vw,74px);line-height:.98;margin:16px 0 24px;letter-spacing:-.05em}h2{font-size:32px;line-height:1.15;margin:56px 0 16px;letter-spacing:-.03em}h3{font-size:22px;margin:28px 0 8px}.lead{font-size:22px;color:var(--muted);max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:28px 0}.card{background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:18px;padding:22px}.card strong{display:block;margin-bottom:8px}.cta{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0}.btn{display:inline-flex;align-items:center;border:1px solid var(--accent);background:rgba(200,149,108,.12);color:var(--text);padding:12px 18px;border-radius:999px;font-weight:700}.btn.secondary{border-color:var(--line);background:transparent;color:var(--muted)}table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--surface);border-radius:16px;overflow:hidden}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--sage);font-size:13px;text-transform:uppercase;letter-spacing:.08em}code{background:#211e1b;border:1px solid var(--line);border-radius:6px;padding:2px 5px}.note{border-left:3px solid var(--accent);padding:14px 18px;background:rgba(200,149,108,.08);color:var(--muted)}footer{margin-top:72px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:24px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/">Quanta Intellect / Vessel Browser</a>
+      <div class="navlinks">
+        <a href="/agent-browser">Agent Browser</a>
+        <a href="/mcp">MCP</a>
+        <a href="/vs/browserbase">vs Browserbase</a>
+        <a href="/vs/browser-use">vs browser-use</a>
+        <a href="https://github.com/unmodeled-tyler/vessel-browser">GitHub</a>
+      </div>
+    </nav>
+
+    <p class="eyebrow">Comparison</p>
+    <h1>Vessel vs browser-use</h1>
+    <p class="lead">browser-use helps agents automate browsers from code. Vessel gives agents a persistent browser runtime with a visible UI, local state, and MCP-oriented workflows.</p>
+    <table><tr><th>Dimension</th><th>Vessel Browser</th><th>browser-use</th></tr>
+      <tr><td>What it is</td><td>A Chromium-based browser runtime/application for agents</td><td>A library/framework for browser automation</td></tr>
+      <tr><td>Interface</td><td>Visible browser UI plus agent control surface</td><td>Programmatic automation layer</td></tr>
+      <tr><td>Persistence</td><td>Designed around durable sessions and user-owned state</td><td>Depends on how the developer wires browser sessions</td></tr>
+      <tr><td>Human-in-the-loop</td><td>Core product premise</td><td>Possible, but not the center of the tool</td></tr>
+      <tr><td>Best for</td><td>Local personal agents, MCP clients, supervised workflows</td><td>Developers building scripted/agentic browser automation</td></tr>
+    </table>
+    <h2>How to think about the difference</h2>
+    <p>If you want a code library to automate browser tasks, browser-use may be the right layer. If you want a browser that an agent can inhabit over time, with visible supervision and durable local context, Vessel is the runtime layer.</p>
+    <h2>Vessel is a good browser-use alternative when...</h2>
+    <ul><li>You want less headless automation and more visible agent work.</li><li>You need a local browser for autonomous agents, not just a script.</li><li>You want MCP-native browser control and persistent sessions.</li><li>You want humans and agents sharing the same operating surface.</li></ul>
+
+    <footer>
+      Vessel Browser is open source under MIT. Premium supports ongoing development and unlocks hosted/productivity features. Built by Quanta Intellect in Portland, Oregon.
+    </footer>
+  </main>
+</body>
+</html>

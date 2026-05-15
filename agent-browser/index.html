@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Is an Agent Browser? | Vessel Browser</title>
+  <meta name="description" content="An agent browser is a browser runtime designed for AI agents as operators and humans as supervisors. Vessel Browser is an open-source agent browser for Linux and Windows.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://quantaintellect.com/agent-browser/index.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Is an Agent Browser? | Vessel Browser">
+  <meta property="og:description" content="An agent browser is a browser runtime designed for AI agents as operators and humans as supervisors. Vessel Browser is an open-source agent browser for Linux and Windows.">
+  <meta property="og:url" content="https://quantaintellect.com/agent-browser/index.html">
+  <meta property="og:image" content="https://quantaintellect.com/quanta-intellect-social-preview-2.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG3LTBNMJH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EG3LTBNMJH');</script>
+
+  <style>
+    :root { --bg:#0c0b0a; --surface:#171513; --surface2:#211e1b; --text:#e8e4df; --muted:#a79f97; --line:rgba(232,228,223,.12); --accent:#c8956c; --sage:#7d9f8e; }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top left,rgba(200,149,108,.12),transparent 34rem),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif} a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}.wrap{max-width:980px;margin:0 auto;padding:48px 22px 80px}.nav{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:64px}.brand{color:var(--text);font-weight:700}.navlinks{display:flex;flex-wrap:wrap;gap:16px;font-size:14px}.eyebrow{color:var(--sage);text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700}h1{font-size:clamp(38px,7vw,74px);line-height:.98;margin:16px 0 24px;letter-spacing:-.05em}h2{font-size:32px;line-height:1.15;margin:56px 0 16px;letter-spacing:-.03em}h3{font-size:22px;margin:28px 0 8px}.lead{font-size:22px;color:var(--muted);max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:28px 0}.card{background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:18px;padding:22px}.card strong{display:block;margin-bottom:8px}.cta{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0}.btn{display:inline-flex;align-items:center;border:1px solid var(--accent);background:rgba(200,149,108,.12);color:var(--text);padding:12px 18px;border-radius:999px;font-weight:700}.btn.secondary{border-color:var(--line);background:transparent;color:var(--muted)}table{width:100%;border-collapse:collapse;margin:24px 0;background:var(--surface);border-radius:16px;overflow:hidden}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--sage);font-size:13px;text-transform:uppercase;letter-spacing:.08em}code{background:#211e1b;border:1px solid var(--line);border-radius:6px;padding:2px 5px}.note{border-left:3px solid var(--accent);padding:14px 18px;background:rgba(200,149,108,.08);color:var(--muted)}footer{margin-top:72px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:24px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/">Quanta Intellect / Vessel Browser</a>
+      <div class="navlinks">
+        <a href="/agent-browser">Agent Browser</a>
+        <a href="/mcp">MCP</a>
+        <a href="/vs/browserbase">vs Browserbase</a>
+        <a href="/vs/browser-use">vs browser-use</a>
+        <a href="https://github.com/unmodeled-tyler/vessel-browser">GitHub</a>
+      </div>
+    </nav>
+
+    <p class="eyebrow">Category guide</p>
+    <h1>What is an agent browser?</h1>
+    <p class="lead">An agent browser is a web browser designed with AI agents as first-class operators, not a human browser with an AI sidebar bolted on.</p>
+    <h2>The short version</h2>
+    <p>Traditional browsers assume a human clicks, reads, and remembers. Agent browsers assume an AI system may navigate pages, fill forms, compare changes, maintain state, and run long workflows while a human supervises. That changes the architecture.</p>
+    <div class="grid">
+      <div class="card"><strong>Durable state</strong>Agents need sessions that survive restarts and continue work over time.</div>
+      <div class="card"><strong>Visible supervision</strong>Humans need to see what the agent is doing, not trust a headless black box.</div>
+      <div class="card"><strong>Tool interoperability</strong>MCP and agent harnesses need stable browser-control surfaces.</div>
+      <div class="card"><strong>Safety boundaries</strong>Agent browsing needs scoped control, auditability, and human override.</div>
+    </div>
+    <h2>Vessel's position</h2>
+    <p>Vessel Browser is an open-source agent browser runtime for Linux and Windows. It is built for persistent autonomous web agents, local/open-model workflows, MCP browser control, and human-in-the-loop browser automation.</p>
+    <h2>When to use an agent browser</h2>
+    <ul><li>When a workflow needs login state, tabs, or repeated visits.</li><li>When an agent needs to inspect actual web pages, not just scrape APIs.</li><li>When a human needs to supervise, approve, or correct actions.</li><li>When you want a local browser runtime instead of a cloud-only browser API.</li></ul>
+    <div class="cta"><a class="btn" href="/mcp">Explore MCP browser control</a><a class="btn secondary" href="https://github.com/unmodeled-tyler/vessel-browser">Install Vessel</a></div>
+
+    <footer>
+      Vessel Browser is open source under MIT. Premium supports ongoing development and unlocks hosted/productivity features. Built by Quanta Intellect in Portland, Oregon.
+    </footer>
+  </main>
+</body>
+</html>

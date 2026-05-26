@@ -491,6 +491,28 @@
       color: var(--text-primary);
     }
 
+    .hero-install-copy.copied {
+      background: rgba(200, 149, 108, 0.15);
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    /* Install section highlight animation for anchor navigation */
+    @keyframes install-highlight {
+      0% { box-shadow: 0 0 0 0 rgba(200, 149, 108, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(200, 149, 108, 0.1); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 149, 108, 0); }
+    }
+
+    .install.highlighted {
+      animation: install-highlight 1.2s ease-out;
+    }
+
+    .install-card .install-code-copy.copied {
+      background: rgba(200, 149, 108, 0.15);
+      color: var(--accent);
+    }
+
     .hero-badge-row {
       display: flex;
       align-items: center;
@@ -2288,12 +2310,39 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    // Clipboard fallback for older browsers / insecure contexts
+    function clipboardWrite(text, btn, successMsg) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = successMsg;
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        }).catch(() => fallbackCopy(text, btn, successMsg));
+      } else {
+        fallbackCopy(text, btn, successMsg);
+      }
+    }
+
+    function fallbackCopy(text, btn, successMsg) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0;left:-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        btn.textContent = successMsg;
+        btn.classList.add('copied');
+      } catch (e) {
+        btn.textContent = 'Failed';
+      }
+      document.body.removeChild(ta);
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    }
+
     // Copy npm install command
     function copyNpm(btn) {
-      navigator.clipboard.writeText('npm i @quanta-intellect/vessel-browser').then(() => {
-        btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = 'Copy', 2000);
-      });
+      clipboardWrite('npm i @quanta-intellect/vessel-browser', btn, 'Copied!');
     }
 
     // Copy code button
@@ -2303,10 +2352,7 @@
         .replace('Copy', '')
         .replace(/\$ /g, '')
         .trim();
-      navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = 'Copied';
-        setTimeout(() => btn.textContent = 'Copy', 2000);
-      });
+      clipboardWrite(text, btn, 'Copied');
     }
 
     // Nav background on scroll
@@ -2318,6 +2364,22 @@
         nav.style.background = 'rgba(12, 11, 10, 0.8)';
       }
     }, { passive: true });
+
+    // Highlight install section when scrolled to via anchor
+    if (window.location.hash === '#install') {
+      setTimeout(() => {
+        const el = document.getElementById('install');
+        if (el) { el.classList.add('highlighted'); setTimeout(() => el.classList.remove('highlighted'), 1500); }
+      }, 300);
+    }
+    document.querySelectorAll('a[href="#install"]').forEach(a => {
+      a.addEventListener('click', () => {
+        setTimeout(() => {
+          const el = document.getElementById('install');
+          if (el) { el.classList.add('highlighted'); setTimeout(() => el.classList.remove('highlighted'), 1500); }
+        }, 400);
+      });
+    });
 
     // Live GitHub star count
     fetch('https://api.github.com/repos/unmodeled-tyler/vessel-browser')

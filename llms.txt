@@ -1,6 +1,30 @@
 # Vessel Browser
 > An open-source, AI-native browser runtime built for persistent autonomous web agents on Linux and Windows.
 
+# Centauri
+> An open-source, local-first Agent Development Environment that preserves native CLI coding harnesses while unifying agent tabs, chat/terminal views, and Git workflows.
+
+## Centauri key phrases
+- harness-preserving agent workspace
+- local-first Agent Development Environment
+- CLI coding agent UI
+- Claude Code and Codex workspace
+- Droid CLI and OpenCode workspace
+- Git-native coding agent cockpit
+- open-source Codex app alternative
+- multi-agent coding workspace
+
+## Centauri differentiators
+- Preserves native harness behavior instead of replacing it with a new agent framework
+- Launches local CLI harnesses and parses their output for display
+- Lets users run different trusted harnesses in separate tabs
+- Pairs coding-agent sessions with Git review, staging, commits, and push workflow
+- No hosted backend, subscription, or account required
+
+## Centauri links
+- Website: https://quantaintellect.com/centauri/
+- GitHub: https://github.com/unmodeled-tyler/centauri
+
 ## What it is
 Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is designed with AI agents as operators and humans as supervisors. Vessel provides durable browser state, MCP-native control, visible human-in-the-loop supervision, and persistent sessions for long-running web workflows.
 

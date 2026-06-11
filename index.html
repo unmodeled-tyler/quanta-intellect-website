@@ -1494,116 +1494,6 @@
     }
 
     /* ═══════════════════════════════════════════
-       OPEN SOURCE PROJECTS
-       ═══════════════════════════════════════════ */
-    .opensource-section {
-      background: var(--bg-deep);
-    }
-
-    .opensource-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 3rem;
-    }
-
-    .opensource-card {
-      position: relative;
-      overflow: hidden;
-      padding: 2rem;
-      background: linear-gradient(180deg, var(--bg-elevated), rgba(28, 26, 24, 0.62));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .opensource-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--border-accent);
-    }
-
-    .opensource-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(200, 149, 108, 0.12), transparent 38%);
-      pointer-events: none;
-    }
-
-    .opensource-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .opensource-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 1rem;
-      padding: 0.4rem 0.65rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--text-tertiary);
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .opensource-eyebrow .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--secondary);
-      box-shadow: 0 0 12px var(--secondary);
-    }
-
-    .opensource-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 400;
-      margin-bottom: 0.85rem;
-    }
-
-    .opensource-card p {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-
-    .opensource-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .opensource-tags span {
-      padding: 0.35rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(200, 149, 108, 0.08);
-      border: 1px solid rgba(200, 149, 108, 0.14);
-      color: var(--text-tertiary);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-    }
-
-    .opensource-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 900px) {
-      .opensource-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ═══════════════════════════════════════════
        FOOTER
        ═══════════════════════════════════════════ */
     .footer {
@@ -1766,7 +1656,6 @@
       <li><a href="#features">Features</a></li>
       <li><a href="/agent-browser/">Agent Browser</a></li>
       <li><a href="/mcp/">MCP</a></li>
-      <li><a href="#opensource">Open Source</a></li>
       <li><a href="#architecture">How It Works</a></li>
       <li><a href="#chat">BYOK</a></li>
       <li><a href="#design">Design</a></li>
@@ -2348,45 +2237,6 @@
         per-tab ad blocking, the Changed badge, domain policies, browsing history,
         private browsing mode, clear browsing data, and 50 tool iterations per turn are all free and always will be.
         Vessel is MIT-licensed open source &mdash; premium is for users who want the advanced toolkit.
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ═══════════════ OPEN SOURCE PROJECTS ═══════════════ -->
-  <section class="opensource-section" id="opensource">
-    <div class="section-inner">
-      <div class="section-label reveal">Open-source projects</div>
-      <h2 class="section-title reveal reveal-delay-1">Local-first infrastructure for the <em>agent era</em></h2>
-      <p class="section-desc reveal reveal-delay-2">
-        Vessel is the browser runtime for web agents. Centauri is the harness-preserving workspace for coding agents. Both follow the same Quanta principle: keep the user's environment and trusted tools intact, then build better orchestration around them.
-      </p>
-
-      <div class="opensource-grid">
-        <div class="opensource-card reveal reveal-delay-2">
-          <div class="opensource-eyebrow"><span class="dot"></span> Flagship product</div>
-          <h3>Vessel Browser</h3>
-          <p>A real Chromium browser runtime for AI agents with persistent sessions, MCP-native control, page-change tracking, and visible human supervision.</p>
-          <div class="opensource-tags">
-            <span>Browser runtime</span>
-            <span>MCP-native</span>
-            <span>Human supervised</span>
-          </div>
-          <a href="#install" class="opensource-link">Install Vessel →</a>
-        </div>
-
-        <div class="opensource-card reveal reveal-delay-3">
-          <div class="opensource-eyebrow"><span class="dot"></span> Beta · open source</div>
-          <h3>Centauri</h3>
-          <p>A local Agent Development Environment for the CLI coding harnesses you already trust. Claude Code stays Claude Code. Codex stays Codex. Droid, OpenCode, Aider, and Vibe keep their native behavior.</p>
-          <div class="opensource-tags">
-            <span>Harness-preserving</span>
-            <span>Git-native</span>
-            <span>No hosted backend</span>
-          </div>
-          <a href="/centauri/" class="opensource-link">Explore Centauri →</a>
-        </div>
       </div>
     </div>
   </section>

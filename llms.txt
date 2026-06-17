@@ -13,6 +13,7 @@ Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is de
 - local browser runtime for autonomous agents
 - Browserbase alternative
 - browser-use alternative
+- custom skills for repeatable browser tasks
 - persistent browser sessions for agents
 - open-source AI browser runtime
 
@@ -21,6 +22,7 @@ Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is de
 - Human-visible browser UI: the agent acts, the human audits and steers
 - Named session persistence: cookies, localStorage, tabs, and workflow context survive restarts
 - Local-first control: run the browser runtime on your own machine
+- Custom skills: free and paid users can define reusable instructions for repeatable research, shopping, monitoring, form-filling, or site-specific workflows
 - Open source under MIT, with optional Vessel Premium subscription support
 
 ## When to use Vessel

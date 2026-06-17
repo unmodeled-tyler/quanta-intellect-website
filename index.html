@@ -27,8 +27,8 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quanta Intellect — Tools for the AI Agent Era</title>
-  <meta name="description" content="Quanta Intellect builds AI-native developer tools. Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native, human-supervised, page-diff aware, MIT licensed.">
+  <title>Vessel Browser — Let your AI use the web while you stay in control</title>
+  <meta name="description" content="Vessel is a browser built for AI assistants. It lets agents open websites, click buttons, fill forms, remember sessions, and show their work in a real browser you can supervise.">
   <meta name="keywords" content="AI browser, autonomous agents, MCP, Model Context Protocol, web agent, browser runtime, AI tools, developer tools, open source, Vessel Browser, Quanta Intellect, agent-first, human supervision, AI web browsing">
   <meta name="author" content="Quanta Intellect">
   <meta name="robots" content="index, follow">
@@ -37,8 +37,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://quantaintellect.com/">
-  <meta property="og:title" content="Quanta Intellect — Tools for the AI Agent Era">
-  <meta property="og:description" content="Vessel Browser is an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native control, human supervision, persistent sessions, and page-diff monitoring. MIT licensed.">
+  <meta property="og:title" content="Vessel Browser — Let your AI use the web while you stay in control">
+  <meta property="og:description" content="Vessel lets an AI assistant open websites, click buttons, fill forms, remember sessions, and show every step in a real browser you can supervise.">
   <meta property="og:image" content="https://quantaintellect.com/quanta-intellect-social-preview-2.png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="800">
@@ -46,8 +46,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Quanta Intellect — Tools for the AI Agent Era">
-  <meta name="twitter:description" content="Vessel Browser: an open-source, agent-first web browser runtime for persistent autonomous web agents. MCP-native, human-supervised, page-diff aware, MIT licensed.">
+  <meta name="twitter:title" content="Vessel Browser — Let your AI use the web while you stay in control">
+  <meta name="twitter:description" content="Vessel lets an AI assistant use websites for you while you watch and stay in control.">
   <meta name="twitter:image" content="https://quantaintellect.com/quanta-intellect-social-preview-2.png">
 
   <!-- Structured Data -->
@@ -78,7 +78,7 @@
     "operatingSystem": "Linux, Windows",
     "license": "https://opensource.org/licenses/MIT",
     "url": "https://github.com/unmodeled-tyler/vessel-browser",
-    "description": "An open-source, AI-native web browser runtime built for persistent autonomous web agents.",
+    "description": "A browser built for AI assistants: agents can open websites, click, type, fill forms, save sessions, and show their work while humans supervise.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -1487,8 +1487,117 @@
       color: var(--text-primary);
     }
 
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .pricing-plan {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pricing-plan--premium {
+      border-color: var(--border-accent);
+      box-shadow: 0 0 40px rgba(200, 149, 108, 0.08);
+      background: linear-gradient(135deg, var(--bg-elevated), rgba(200, 149, 108, 0.05));
+    }
+
+    .pricing-plan-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .pricing-plan-price {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+
+    .pricing-plan-price span {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-tertiary);
+    }
+
+    .pricing-plan-trial,
+    .pricing-plan-summary {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .pricing-plan-trial {
+      color: var(--accent-dim);
+      margin-top: -0.5rem;
+    }
+
+    .pricing-plan-cta {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      background: var(--accent);
+      color: var(--bg-deep);
+      font-weight: 600;
+      border-radius: 8px;
+      text-align: center;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .pricing-plan-cta:hover {
+      background: #d4a87a;
+      color: var(--bg-deep);
+      transform: translateY(-1px);
+    }
+
+    .pricing-plan-cta--secondary {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-accent);
+    }
+
+    .pricing-plan-cta--secondary:hover {
+      background: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
+    .pricing-feature-list {
+      list-style: none;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .pricing-feature-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .pricing-feature-list strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
-      .premium-layout {
+      .premium-layout,
+      .pricing-cards {
         grid-template-columns: 1fr;
       }
     }
@@ -1653,14 +1762,13 @@
     </a>
     <ul class="nav-links">
       <li><a href="#demo">Demo</a></li>
-      <li><a href="#features">Features</a></li>
+      <li><a href="#features">Use Cases</a></li>
       <li><a href="/agent-browser/">Agent Browser</a></li>
       <li><a href="/mcp/">MCP</a></li>
       <li><a href="#architecture">How It Works</a></li>
-      <li><a href="#chat">BYOK</a></li>
-      <li><a href="#design">Design</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#install">Install</a></li>
-      <li><a href="#premium" class="nav-premium">
+      <li><a href="#pricing" class="nav-premium">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Try Premium Free
       </a></li>
@@ -1683,12 +1791,12 @@
         <img src="vessel-logo-transparent.png" alt="Vessel Browser">
       </div>
 
-      <div class="section-label reveal reveal-delay-2">MCP-native browser runtime for AI agents</div>
+      <div class="section-label reveal reveal-delay-2">A browser built for AI assistants</div>
 
-      <h1 class="reveal reveal-delay-2">The browser where<br> <em>agents</em> drive</h1>
+      <h1 class="reveal reveal-delay-2">Let your AI use the web<br> while <em>you</em> stay in control</h1>
 
       <p class="hero-sub reveal reveal-delay-3">
-        Vessel gives AI agents a real Chromium browser with persistent sessions, MCP control, page-change tracking, and a visible human supervision layer.
+        Vessel lets an AI assistant open websites, click buttons, fill forms, remember sessions, and show every step in a real browser you can supervise.
       </p>
 
       <div class="hero-actions reveal reveal-delay-4">
@@ -1707,7 +1815,7 @@
       </div>
 
       <p class="hero-sub reveal reveal-delay-4" style="font-size:0.98rem;margin-top:1.5rem;color:var(--text-tertiary);">
-        Open-source core. $5.99/mo Premium for advanced agent tools. 7-day free trial, cancel anytime.
+        Free open-source core. Premium adds saved sessions, vision, page-change history, credential vaults, and longer agent workflows.
       </p>
 
       <div class="hero-install-snippet reveal reveal-delay-5">
@@ -1747,9 +1855,9 @@
   <section class="demo" id="demo">
     <div class="section-inner">
       <div class="section-label reveal">See It In Action</div>
-      <h2 class="section-title reveal reveal-delay-1">Full autonomous loop &mdash; <em>no human input</em></h2>
+      <h2 class="section-title reveal reveal-delay-1">Watch Vessel complete a <em>real web task</em></h2>
       <p class="demo-context reveal reveal-delay-2">
-        One prompt. Five books added to cart on Powell&rsquo;s. The agent navigates, browses, selects, and completes the entire workflow autonomously while you watch.
+        One prompt. Vessel searches Powell&rsquo;s, chooses books, and adds them to a cart in a visible browser &mdash; so you can see exactly what the agent is doing.
       </p>
 
       <div class="demo-video-container reveal reveal-delay-3">
@@ -1763,7 +1871,7 @@
         <div class="demo-stat"><span class="dot"></span> 2 min 53 sec</div>
         <div class="demo-stat"><span class="dot"></span> powells.com</div>
         <div class="demo-stat"><span class="dot"></span> 5 books &rarr; cart</div>
-        <div class="demo-stat"><span class="dot"></span> Zero human input</div>
+        <div class="demo-stat"><span class="dot"></span> Visible and supervisable</div>
       </div>
     </div>
   </section>
@@ -1774,102 +1882,66 @@
   <section class="features" id="features">
     <div class="section-inner">
       <div class="features-header">
-        <div class="section-label reveal">Capabilities</div>
-        <h2 class="section-title reveal reveal-delay-1">Built for agents,<br>not <em>against</em> them</h2>
+        <div class="section-label reveal">What Vessel Helps With</div>
+        <h2 class="section-title reveal reveal-delay-1">Web tasks your AI can <em>actually finish</em></h2>
         <p class="section-desc reveal reveal-delay-2">
-          Traditional browsers assume a human at the helm. Vessel inverts that model &mdash; the agent is the primary operator, and every surface is designed for programmatic control with human oversight.
+          Normal browsers are made for people clicking one step at a time. Vessel gives AI assistants a browser workspace where they can read, click, remember, and ask for your help when it matters.
         </p>
       </div>
 
-      <div class="features-grid">
+      <div class="features-grid outcome-grid">
         <div class="feature-card reveal">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 4h16v12H5.5L4 17.5V4z"/><path d="M8 9h8M8 13h5"/></svg>
           </div>
-          <h3>Agent-First Design</h3>
-          <p>Not a human browser with agent bolted on. Every interaction surface &mdash; tools, state, context &mdash; is built for autonomous operation.</p>
-          <span class="feature-tag">Core Architecture</span>
+          <h3>Research and summarize websites</h3>
+          <p>Ask an AI to browse real pages, collect useful information, compare options, and bring back a clean summary instead of dumping tabs on you.</p>
+          <span class="feature-tag">Research</span>
         </div>
 
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M6 2h12v20H6z"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>
           </div>
-          <h3>MCP-Native Control</h3>
-          <p>Full Model Context Protocol integration with 80+ tools. Navigate, interact, extract, and manage state through structured protocol calls.</p>
-          <span class="feature-tag">Protocol</span>
+          <h3>Fill forms and handle repetitive clicking</h3>
+          <p>Let your assistant click through websites, fill fields, extract tables, and complete tedious browser steps while you keep the final say.</p>
+          <span class="feature-tag">Web Tasks</span>
         </div>
 
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
           </div>
-          <h3>Persistent Sessions</h3>
-          <p>Named sessions preserve cookies, localStorage, and tab layout. Annotated checkpoints and action undo give humans safe recovery points before risky flows.</p>
-          <span class="feature-tag">State Management</span>
+          <h3>Stay logged in and continue later</h3>
+          <p>Save browser sessions, tabs, cookies, highlights, bookmarks, and checkpoints so your AI does not have to start from scratch every time.</p>
+          <span class="feature-tag">Memory</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
-          <h3>Human Supervision</h3>
-          <p>Supervisor sidebar spans seven tabs: Supervisor, Bookmarks, Checkpoints, Chat, Skills, History, and Changes. Pause, approve, undo, or redirect live.</p>
-          <span class="feature-tag">Oversight</span>
+          <h3>Watch, approve, undo, or redirect</h3>
+          <p>Vessel is visible by default. See what the agent is doing, pause risky steps, approve sensitive actions, and roll back if something goes sideways.</p>
+          <span class="feature-tag">Control</span>
         </div>
 
         <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          <h3>Semantic Page Context</h3>
-          <p>Page schema inference labels page type, entities, forms, fields, and action buttons. Extraction includes visibility, disabled state, values, and overlays.</p>
-          <span class="feature-tag">Intelligence</span>
-        </div>
-
-        <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>Dev Tools & Command Bar</h3>
-          <p>Built-in developer tools with console, network, and MCP activity logs. Command bar for harness-driven workflows. Reader mode for clean extraction.</p>
-          <span class="feature-tag">Developer Experience</span>
-        </div>
-
-        <div class="feature-card reveal">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3>Page Diff &amp; What Changed</h3>
-          <p>Vessel snapshots visited pages and surfaces a Changed badge when title, headings, or content differ. Premium adds a sidebar timeline of change bursts.</p>
-          <span class="feature-tag">Change Intelligence</span>
-        </div>
-
-        <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <h3>Autofill, Highlights &amp; Bookmarks</h3>
-          <p>Reusable profiles fill forms. Highlights persist across navigation. Agent-facing bookmarks store intent, expected content, key fields, hints, and page schema.</p>
-          <span class="feature-tag">Interaction</span>
+          <h3>Monitor pages for changes</h3>
+          <p>Track important pages and let Vessel surface what changed, so your AI can help watch products, docs, dashboards, listings, or research sources.</p>
+          <span class="feature-tag">Monitoring</span>
         </div>
 
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
           </div>
-          <h3>Transcript &amp; Skills</h3>
-          <p>Live agent thinking renders in a floating dock. Multi-step workflows and premium Skills show progress in the sidebar while the agent executes.</p>
-          <span class="feature-tag">Observability</span>
-        </div>
-
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          </div>
-          <h3>Security &amp; Privacy</h3>
-          <p>Address-bar padlock with TLS certificate details, per-tab security state, private browsing mode for isolated sessions, and one-click browsing data clearing.</p>
-          <span class="feature-tag">Browser Essentials</span>
+          <h3>Plug into your own AI setup</h3>
+          <p>Use Vessel with the built-in chat or connect it to an MCP-compatible agent harness. Bring your own model keys, local models, or OpenAI-compatible endpoint.</p>
+          <span class="feature-tag">BYOK + MCP</span>
         </div>
       </div>
     </div>
@@ -1882,27 +1954,27 @@
     <div class="section-inner">
       <div class="arch-header">
         <div class="section-label reveal">How It Works</div>
-        <h2 class="section-title reveal reveal-delay-1">Three layers, <em>one flow</em></h2>
+        <h2 class="section-title reveal reveal-delay-1">Simple on the surface, <em>technical underneath</em></h2>
         <p class="section-desc reveal reveal-delay-2">
-          Vessel sits between your agent harness and the web, providing structured control with human oversight at every step.
+          The homepage stays plain: Vessel is a browser your AI can use while you supervise. Under the hood, it is a local Chromium runtime with MCP tools, persistent state, page intelligence, checkpoints, and approval controls.
         </p>
       </div>
 
       <div class="arch-diagram reveal reveal-delay-3">
         <!-- Agent Column -->
         <div class="arch-column" style="position: relative;">
-          <div class="arch-column-label">Agent Harness</div>
+          <div class="arch-column-label">AI Assistant / Agent</div>
           <div class="arch-node">
-            <div class="arch-node-title">MCP Client</div>
-            <div class="arch-node-desc">Hermes, OpenClaw, or any MCP-compatible agent</div>
+            <div class="arch-node-title">Your AI asks to use the web</div>
+            <div class="arch-node-desc">Built-in chat, Hermes, Claude/Codex-style harnesses, or any MCP-compatible agent</div>
           </div>
           <div class="arch-node">
-            <div class="arch-node-title">Tool Calls</div>
-            <div class="arch-node-desc">navigate, click, type, extract, diff, undo, save_session&hellip;</div>
+            <div class="arch-node-title">Structured browser actions</div>
+            <div class="arch-node-desc">Navigate, click, type, extract, diff, undo, save sessions, and restore checkpoints</div>
           </div>
           <div class="arch-node">
-            <div class="arch-node-title">Context Window</div>
-            <div class="arch-node-desc">Semantic page context, not raw HTML</div>
+            <div class="arch-node-title">Page understanding</div>
+            <div class="arch-node-desc">The agent sees clean page context: forms, buttons, tables, overlays, and important text</div>
           </div>
           <div class="arch-connector arch-connector-left">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1914,16 +1986,16 @@
         <div class="arch-column" style="position: relative;">
           <div class="arch-column-label">Vessel Runtime</div>
           <div class="arch-node arch-node--accent">
-            <div class="arch-node-title">MCP Server</div>
-            <div class="arch-node-desc">Receives tool calls, validates, routes</div>
+            <div class="arch-node-title">MCP server</div>
+            <div class="arch-node-desc">Receives tool calls from agents, validates them, and routes them safely</div>
           </div>
           <div class="arch-node arch-node--accent">
             <div class="arch-node-title">Browser Engine</div>
             <div class="arch-node-desc">Chromium with persistent state and session management</div>
           </div>
           <div class="arch-node arch-node--accent">
-            <div class="arch-node-title">Ergonomic Layer</div>
-            <div class="arch-node-desc">Semantic hints, contextual tools, flow state, page-change snapshots</div>
+            <div class="arch-node-title">Agent-friendly layer</div>
+            <div class="arch-node-desc">Semantic hints, contextual tools, workflow state, page-change snapshots, and undo points</div>
           </div>
           <div class="arch-connector arch-connector-right">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1933,18 +2005,18 @@
 
         <!-- Human Column -->
         <div class="arch-column">
-          <div class="arch-column-label">Human Supervisor</div>
+          <div class="arch-column-label">You</div>
           <div class="arch-node">
-            <div class="arch-node-title">Supervisor Sidebar</div>
-            <div class="arch-node-desc">Live view of agent actions with approve/deny controls</div>
+            <div class="arch-node-title">Watch what happens</div>
+            <div class="arch-node-desc">A visible browser and sidebar show what the agent is doing in real time</div>
           </div>
           <div class="arch-node">
-            <div class="arch-node-title">Approval Policies</div>
-            <div class="arch-node-desc">Configure auto-approve, require-approval, or deny rules</div>
+            <div class="arch-node-title">Approve risky steps</div>
+            <div class="arch-node-desc">Pause, approve, deny, or redirect actions before the agent goes too far</div>
           </div>
           <div class="arch-node">
-            <div class="arch-node-title">Checkpoint Recovery</div>
-            <div class="arch-node-desc">Restore to a named checkpoint or the snapshot before the last mutating action</div>
+            <div class="arch-node-title">Undo and recover</div>
+            <div class="arch-node-desc">Restore named checkpoints or roll back before the last mutating action</div>
           </div>
         </div>
       </div>
@@ -1959,9 +2031,9 @@
       <div class="byok-layout">
         <div class="byok-content">
           <div class="section-label reveal">Bring Your Own Keys</div>
-          <h2 class="section-title reveal reveal-delay-1">Your keys, your <em>models</em></h2>
+          <h2 class="section-title reveal reveal-delay-1">Use the AI stack <em>you already trust</em></h2>
           <p class="section-desc reveal reveal-delay-2">
-            Run Vessel as an MCP server through your agent harness, or use the built-in chat assistant with your own API keys. Nine providers supported out of the box &mdash; plus any OpenAI-compatible endpoint.
+            Vessel can run as a browser tool for an outside agent, or as a built-in chat assistant. Use OpenAI, Ollama, Mistral, Gemini, OpenRouter, llama.cpp, or any OpenAI-compatible endpoint.
           </p>
 
           <div class="byok-modes reveal reveal-delay-3">
@@ -2016,9 +2088,9 @@
       <div class="speedee-layout">
         <div class="speedee-content">
           <div class="section-label reveal">Design Philosophy</div>
-          <h2 class="section-title reveal reveal-delay-1">The <em>Vessel Harness</em><br>for agents</h2>
+          <h2 class="section-title reveal reveal-delay-1">For builders who want the <em>details</em></h2>
           <p class="section-desc reveal reveal-delay-2">
-            A purpose-built runtime that encodes web browsing workflow so agents don't have to think about which tool to use &mdash; every interaction surface is designed for autonomous operation from the start.
+            Vessel still exposes the lower-level agent primitives when you need them: contextual tools, semantic hints, workflow state, macros, and progressive disclosure for complex browser automation.
           </p>
           <ul class="speedee-principles">
             <li class="reveal reveal-delay-2">
@@ -2153,90 +2225,55 @@
 
   <div class="section-divider"></div>
 
-  <!-- ═══════════════ PREMIUM ═══════════════ -->
-  <section class="premium" id="premium">
+  <!-- ═══════════════ PRICING ═══════════════ -->
+  <section class="premium" id="pricing">
     <div class="section-inner">
       <div class="premium-header">
-        <div class="section-label reveal">Vessel Premium</div>
-        <h2 class="section-title reveal reveal-delay-1">Unlock the <em>full</em> toolkit</h2>
+        <div class="section-label reveal">Pricing</div>
+        <h2 class="section-title reveal reveal-delay-1">Start free. Upgrade when your AI needs <em>more room to work</em></h2>
         <p class="section-desc reveal reveal-delay-2">
-          Vessel is free and open source. Premium unlocks advanced capabilities
-          for power users and production agent workflows, including full page-change history.
+          The free version is a real browser for AI-assisted web work. Premium adds the tools that make longer, messier, and more private workflows practical.
         </p>
       </div>
 
-      <div class="premium-layout">
-        <ul class="premium-features-list reveal">
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Screenshot &amp; vision analysis</strong> &mdash; the agent sees exactly what you see, even when page extraction fails</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Session management</strong> &mdash; save and restore authenticated browser states across runs. Log in once, reuse forever</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Obsidian vault integration</strong> &mdash; capture pages, write research notes, and search your knowledge base directly from the agent</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Workflow tracking</strong> &mdash; multi-step flow state persistence for complex automation sequences</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>DevTools inspection</strong> &mdash; computed styles, console capture, network monitoring, and CDP-level debugging</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Table extraction</strong> &mdash; structured data extraction from HTML tables into clean JSON</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Agent Credential Vault</strong> &mdash; encrypted credential storage with blind-fill logins, TOTP 2FA, user consent dialogs, and append-only audit logs</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Human Password Manager</strong> &mdash; personal credential vault with encrypted storage, auto-fill across sites, and separate from agent credentials</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Skills</strong> &mdash; import, view, edit, or delete reusable browser skills the built-in agent can use for tasks like research, shopping, and site-specific workflows</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>What Changed Timeline</strong> &mdash; persisted per-page change history in the sidebar Changes tab, with timestamps and compact summaries for each detected update</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Session performance metrics</strong> &mdash; per-tool call counts, average durations, error rates, and total session statistics</span>
-          </li>
-          <li>
-            <span class="premium-check">&#10003;</span>
-            <span><strong>Unlimited tool iterations</strong> &mdash; configurable up to 1,000 tool calls per conversation turn (free tier: 50)</span>
-          </li>
-        </ul>
+      <div class="pricing-cards">
+        <div class="pricing-plan reveal">
+          <div class="pricing-plan-label">Free</div>
+          <div class="pricing-plan-price">$0 <span>/ forever</span></div>
+          <p class="pricing-plan-summary">Best for trying Vessel, connecting an agent, and handling everyday browser tasks.</p>
+          <a href="#install" class="pricing-plan-cta pricing-plan-cta--secondary">Install Free</a>
+          <ul class="pricing-feature-list">
+            <li><span class="premium-check">&#10003;</span><span>AI can navigate, read pages, click, type, scroll, and use forms</span></li>
+            <li><span class="premium-check">&#10003;</span><span>Visible browser window with action undo and human supervision</span></li>
+            <li><span class="premium-check">&#10003;</span><span>Bookmarks, persistent highlights, autofill profiles, and browsing history</span></li>
+            <li><span class="premium-check">&#10003;</span><span>Ad blocking, private browsing, clear browsing data, and domain policies</span></li>
+            <li><span class="premium-check">&#10003;</span><span>Changed badge for pages Vessel has seen before</span></li>
+            <li><span class="premium-check">&#10003;</span><span>50 tool calls per conversation turn</span></li>
+            <li><span class="premium-check">&#10003;</span><span>MIT-licensed open-source core</span></li>
+          </ul>
+        </div>
 
-        <div class="premium-card reveal reveal-delay-1">
-          <div class="premium-card-label">Premium</div>
-          <div class="premium-card-price">$5.99 <span>/ month</span></div>
-          <div class="premium-card-trial">7-day free trial &mdash; cancel anytime</div>
-          <a href="https://vesselpremium.quantaintellect.com/checkout" class="premium-card-cta" target="_blank" rel="noopener">
-            Start Free Trial
-          </a>
-          <p class="premium-card-note">
-            Payment handled securely by Stripe. After checkout, enter your email
-            in Vessel Settings &gt; Premium to activate.
-          </p>
+        <div class="pricing-plan pricing-plan--premium reveal reveal-delay-1">
+          <div class="pricing-plan-label">Premium</div>
+          <div class="pricing-plan-price">$5.99 <span>/ month</span></div>
+          <p class="pricing-plan-trial">7-day free trial &mdash; cancel anytime</p>
+          <p class="pricing-plan-summary">Best for saved sessions, private accounts, visual pages, page monitoring, and longer agent workflows.</p>
+          <a href="https://vesselpremium.quantaintellect.com/checkout" class="pricing-plan-cta" target="_blank" rel="noopener">Start Free Trial</a>
+          <ul class="pricing-feature-list">
+            <li><span class="premium-check">&#10003;</span><span><strong>Saved sessions</strong> so agents can stay logged in and resume work later</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>Screenshot and vision tools</strong> for pages that are hard to read from text alone</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>What Changed timeline</strong> with page-change history and timestamps</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>Workflow tracking</strong> for multi-step research, shopping, and automation tasks</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>Credential vaults</strong> with blind-fill logins, TOTP support, consent dialogs, and audit logs</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>Obsidian capture</strong> for turning useful pages into notes and research memory</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>DevTools and table extraction</strong> for debugging, structured data, and messy websites</span></li>
+            <li><span class="premium-check">&#10003;</span><span><strong>Up to 1,000 tool calls</strong> per conversation turn for longer tasks</span></li>
+          </ul>
         </div>
       </div>
 
       <div class="premium-free-note reveal">
-        <strong>The free tier is not a demo.</strong> Core navigation, page reading (including glance mode),
-        clicking, typing, scrolling, bookmarks, highlights, action undo, autofill profiles,
-        per-tab ad blocking, the Changed badge, domain policies, browsing history,
-        private browsing mode, clear browsing data, and 50 tool iterations per turn are all free and always will be.
-        Vessel is MIT-licensed open source &mdash; premium is for users who want the advanced toolkit.
+        <strong>Plain English:</strong> Free is enough to see what Vessel is and let an AI use the browser. Premium is for the workflows where you want the AI to remember sessions, inspect visual pages, monitor changes, use private accounts safely, and keep working longer.
       </div>
     </div>
   </section>
@@ -2255,13 +2292,13 @@
       <div class="footer-col">
         <h4>Product</h4>
         <ul>
-          <li><a href="#features">Features</a></li>
+          <li><a href="#features">Use Cases</a></li>
           <li><a href="/agent-browser/">What is an agent browser?</a></li>
           <li><a href="/mcp/">MCP browser control</a></li>
           <li><a href="#architecture">Architecture</a></li>
           <li><a href="#design">Design Philosophy</a></li>
           <li><a href="#install">Install</a></li>
-          <li><a href="#premium">Premium</a></li>
+          <li><a href="#pricing">Pricing</a></li>
         </ul>
       </div>
 

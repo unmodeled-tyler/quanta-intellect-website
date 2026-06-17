@@ -1,5 +1,5 @@
 # Vessel Browser
-> An open-source, AI-native browser runtime built for persistent autonomous web agents on Linux and Windows.
+> An open-source, AI-native browser runtime built for persistent autonomous web agents on Linux, Windows, and Mac.
 
 ## What it is
 Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is designed with AI agents as operators and humans as supervisors. Vessel provides durable browser state, MCP-native control, visible human-in-the-loop supervision, and persistent sessions for long-running web workflows.
@@ -8,7 +8,7 @@ Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is de
 - browser for AI agents
 - MCP browser control
 - open source agent browser
-- AI agent browser for Linux
+- AI agent browser for Linux, Windows, and Mac
 - human-in-the-loop browser automation
 - local browser runtime for autonomous agents
 - Browserbase alternative

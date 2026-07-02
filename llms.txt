@@ -35,4 +35,4 @@ Use Vessel when an AI agent needs a real browser with durable state, visible sup
 - Vessel vs Browserbase: https://quantaintellect.com/vs/browserbase/
 - Vessel vs browser-use: https://quantaintellect.com/vs/browser-use/
 - GitHub: https://github.com/unmodeled-tyler/vessel-browser
-- Premium checkout: https://vesselpremium.quantaintellect.com/checkout
+- Pricing: https://quantaintellect.com/#pricing

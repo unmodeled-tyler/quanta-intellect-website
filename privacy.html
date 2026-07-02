@@ -88,91 +88,111 @@
   </div>
   <div class="legal-content">
     <h1>Privacy Policy</h1>
-    <p class="legal-date">Effective date: March 25, 2026</p>
+    <p class="legal-date">Effective date: July 1, 2026</p>
 
     <p>
       Quanta Intellect ("we," "us," or "our") builds open-source developer tools.
       This Privacy Policy explains how we collect, use, and protect information in connection
-      with our products and services, including the Vessel Browser application and the
-      quantaintellect.com website.
+      with our products and services, including Vessel Browser, the Vessel Android app,
+      Vessel Premium, related backend services, and the quantaintellect.com website.
     </p>
 
     <h2>1. What We Collect</h2>
 
-    <p><strong>Vessel Browser (the desktop application):</strong></p>
+    <p><strong>Vessel Browser and Vessel for Android:</strong></p>
     <ul>
-      <li>Vessel runs entirely on your local machine. We do not collect, transmit, or store
-        your browsing data, page content, bookmarks, highlights, session data, or AI conversation history.</li>
-      <li>AI queries are sent directly from your machine to the AI provider you configure
-        (e.g., Anthropic, OpenAI). We do not proxy, log, or have access to these requests.</li>
-      <li>If you subscribe to Vessel Premium, we collect your email address and Stripe customer ID
-        solely for subscription management. Payment processing is handled entirely by
-        <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe</a>.</li>
+      <li>Vessel stores browsing data, page content, bookmarks, highlights, sessions,
+        settings, automation audit entries, and AI conversation history locally on your device.</li>
+      <li>When you use your own AI provider or custom OpenAI-compatible endpoint, requests are
+        sent from your device to the provider you configure using the API key you provide. We do
+        not receive or store those bring-your-own-key requests.</li>
+      <li>When you use the Vessel AI subscription runtime, requests are sent to the Vessel Premium
+        backend at <code>vesselpremium.quantaintellect.com</code>, which verifies entitlement and
+        proxies OpenAI-compatible chat requests to OpenRouter. These requests may include your
+        prompt, recent conversation context, and page context needed for the assistant to respond.</li>
+      <li>If you subscribe or buy usage top-ups through the Android app, Google Play handles
+        payment processing. The Vessel Premium backend receives purchase tokens and product IDs
+        from the app so it can verify purchases with the Google Play Android Developer API.</li>
+      <li>If you subscribe through a desktop or web checkout, payment processing may be handled by
+        Stripe. We do not see or store full payment card details.</li>
     </ul>
 
     <p><strong>This website (quantaintellect.com):</strong></p>
     <ul>
-      <li>We use Google Tag Manager and Microsoft Clarity for anonymous analytics
-        (page views, scroll depth, click patterns). No personally identifiable information
-        is collected through these tools.</li>
+      <li>We use Google Tag Manager and Microsoft Clarity for website analytics
+        (page views, scroll depth, click patterns). No payment information is collected through
+        these tools.</li>
       <li>We do not use advertising cookies or sell data to third parties.</li>
     </ul>
 
     <h2>2. AI Provider Data</h2>
     <p>
-      Vessel is a "bring your own key" (BYOK) application. When you configure an AI provider,
-      your API key is stored locally on your machine in your user data directory. We never
-      receive, store, or have access to your API keys. Your AI conversations are sent directly
-      to your chosen provider under their privacy policies.
+      Vessel supports both bring-your-own-key usage and a Vessel AI subscription runtime. In
+      bring-your-own-key mode, your API key is stored locally on your device and requests go to
+      the endpoint you choose under that provider's privacy policy. In Vessel AI subscription
+      mode, requests are routed through the Vessel Premium backend to OpenRouter so we can provide
+      access, enforce usage limits, and track entitlement status.
     </p>
 
     <h2>3. Vessel Premium</h2>
     <p>
-      When you subscribe to Vessel Premium, the following data is processed:
+      When you use Vessel Premium, the following data may be processed:
     </p>
     <ul>
-      <li><strong>Email address</strong> — used to identify your subscription and for account recovery.</li>
-      <li><strong>Stripe customer ID</strong> — a unique identifier assigned by Stripe for billing.</li>
-      <li><strong>Subscription status</strong> — whether your subscription is active, trialing, or canceled.</li>
+      <li><strong>Email address</strong> — used to identify your subscription and support account recovery.</li>
+      <li><strong>Customer and entitlement IDs</strong> — used to issue and refresh Vessel subscription tokens.</li>
+      <li><strong>Google Play purchase data</strong> — package name, product ID, purchase token,
+        subscription status, expiration time, and top-up purchase tokens used for verification.</li>
+      <li><strong>Stripe customer ID</strong> — used only if you subscribe through a Stripe-powered
+        desktop or web checkout.</li>
+      <li><strong>Usage metadata</strong> — request counts, token counts when returned by the model
+        provider, estimated inference cost, plan budget, remaining budget, and top-up credits.</li>
     </ul>
     <p>
-      Payment information (credit card numbers, billing address) is collected and processed
-      exclusively by Stripe. We never see or store your payment details. See
-      <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.
+      Payment card details and platform billing information are processed by Google Play or Stripe,
+      depending on where you subscribe. We never see or store full payment card numbers. See
+      <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" target="_blank" rel="noopener">Google Payments Privacy Notice</a>
+      and <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.
     </p>
 
     <h2>4. Data Storage and Security</h2>
     <ul>
-      <li>All Vessel application data (settings, bookmarks, highlights, sessions, history)
-        is stored locally on your machine in your OS user data directory.</li>
-      <li>Premium subscription verification requests are processed by a Cloudflare Worker
-        that communicates with the Stripe API. No browsing data is included in these requests.</li>
-      <li>We use HTTPS for all network communication.</li>
+      <li>Vessel application data such as settings, bookmarks, highlights, sessions, history, and
+        saved transcripts is stored locally on your device unless you export it or send context to
+        an AI endpoint as part of using the assistant.</li>
+      <li>The Vessel Premium backend stores entitlement and usage state needed to verify
+        subscriptions, refresh access, and enforce plan budgets. It does not store your local
+        browsing history, bookmarks, saved sessions, or website credentials.</li>
+      <li>We use HTTPS for all production network communication with Vessel services.</li>
     </ul>
 
     <h2>5. Third-Party Services</h2>
     <p>We use the following third-party services:</p>
     <ul>
-      <li><strong>Stripe</strong> — payment processing for Vessel Premium subscriptions</li>
-      <li><strong>Google Tag Manager</strong> — anonymous website analytics</li>
-      <li><strong>Microsoft Clarity</strong> — anonymous website behavior analytics</li>
+      <li><strong>Google Play Billing and Google Play Android Developer API</strong> — Android
+        subscription, top-up purchase, and purchase-token verification</li>
+      <li><strong>OpenRouter</strong> — AI model routing for the Vessel AI subscription runtime</li>
+      <li><strong>Stripe</strong> — payment processing for desktop or web Vessel Premium subscriptions, when offered</li>
+      <li><strong>Google Tag Manager</strong> — website analytics</li>
+      <li><strong>Microsoft Clarity</strong> — website behavior analytics</li>
       <li><strong>GitHub</strong> — source code hosting, issue tracking, and release distribution</li>
       <li><strong>npm</strong> — package distribution</li>
-      <li><strong>Cloudflare</strong> — website hosting and API infrastructure</li>
+      <li><strong>Cloudflare</strong> — DNS, security, and website/API infrastructure</li>
     </ul>
 
     <h2>6. Your Rights</h2>
     <p>
-      Since Vessel stores all data locally on your machine, you have full control over your data
-      at all times. You can delete any Vessel data by removing files from your user data directory.
-      For Premium subscription data, you can manage or cancel your subscription through the
-      Stripe Customer Portal (accessible from Vessel Settings), or contact us to request deletion.
+      Since Vessel stores most application data locally on your device, you can delete that data
+      from within the app where controls are available, by removing the app's local data, or by
+      uninstalling Vessel. Android subscriptions and top-ups are managed through Google Play. Web
+      or desktop subscriptions, when offered through Stripe, are managed through the Stripe Customer
+      Portal. You may also contact us to request deletion of Premium account or entitlement data.
     </p>
 
     <h2>7. Children's Privacy</h2>
     <p>
-      Vessel is a developer tool not directed at children under 13. We do not knowingly collect
-      information from children.
+      Vessel is a browser and AI-agent tool not directed at children under 13. We do not knowingly
+      collect information from children.
     </p>
 
     <h2>8. Changes to This Policy</h2>

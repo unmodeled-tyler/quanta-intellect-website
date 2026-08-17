@@ -20,6 +20,7 @@ export function validateSubmission(input) {
   const subject = cleanHeader(input?.subject, MAX_SUBJECT_LENGTH);
   const message = String(input?.message || "").trim().slice(0, MAX_MESSAGE_LENGTH);
   const company = cleanHeader(input?.company, 120);
+  const hasQuote = input?.hasQuote === true || input?.hasQuote === "yes";
   const website = cleanHeader(input?.website, 200);
 
   if (website) return { ok: false, silent: true, error: "Invalid submission" };
@@ -28,20 +29,21 @@ export function validateSubmission(input) {
   if (!subject) return { ok: false, error: "Please enter a subject." };
   if (!message) return { ok: false, error: "Please describe your project." };
 
-  return { ok: true, value: { name, email, subject, message, company } };
+  return { ok: true, value: { name, email, subject, message, company, hasQuote } };
 }
 
 export function buildSubject(subject) {
   return `${SUBJECT_PREFIX} ${cleanHeader(subject, MAX_SUBJECT_LENGTH)}`;
 }
 
-export function buildPlainText({ name, email, company, subject, message }, metadata = {}) {
+export function buildPlainText({ name, email, company, subject, message, hasQuote }, metadata = {}) {
   return [
     "New custom software inquiry",
     "",
     `Name: ${name}`,
     `Email: ${email}`,
     `Company: ${company || "Not provided"}`,
+    `Existing quote or proposal: ${hasQuote ? "Yes" : "No"}`,
     `Subject: ${subject}`,
     `Submitted: ${metadata.submittedAt || new Date().toISOString()}`,
     metadata.country ? `Country: ${metadata.country}` : null,

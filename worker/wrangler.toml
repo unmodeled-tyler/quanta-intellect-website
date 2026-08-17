@@ -1,0 +1,15 @@
+name = "quanta-contact-form"
+main = "src/worker.js"
+compatibility_date = "2026-08-17"
+preview_urls = false
+
+routes = [
+  { pattern = "contact.quantaintellect.com", custom_domain = true }
+]
+
+[[kv_namespaces]]
+binding = "CONTACT_RATE_LIMIT"
+id = "73c34d62bf554f66bb38d835dc49e8fc"
+
+[observability]
+enabled = true

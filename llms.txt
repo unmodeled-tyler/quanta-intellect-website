@@ -1,6 +1,11 @@
 # Vessel Browser
 > An open-source, AI-native browser runtime built for persistent autonomous web agents on Linux, Windows, and Mac.
 
+## Quanta Intellect custom software services
+Quanta Intellect is a founder-led software studio in Portland, Oregon. It builds custom internal tools, web and mobile applications, practical AI workflows, customer portals, integrations, and software modernization projects for growing teams.
+
+- Custom software services: https://quantaintellect.com/custom-software/
+
 ## What it is
 Vessel Browser is a Chromium-based agent browser from Quanta Intellect. It is designed with AI agents as operators and humans as supervisors. Vessel provides durable browser state, MCP-native control, visible human-in-the-loop supervision, and persistent sessions for long-running web workflows.
 
